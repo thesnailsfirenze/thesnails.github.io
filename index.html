@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schemi The Snails 2026/27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: campo a metà (SVG) a sinistra, pannello fasi a destra; colonna unica su telefono */
+:root{
+  --bg:#0d0d0c; --surface:#171715; --floor:#1f1e1a; --floor2:#262420; --line:#f5c518; --paint:#3a3210;
+  --fg:#f3efe2; --muted:#a8a395; --rule:#34322b;
+  --atk:#f5c518; --atk-ink:#0d0d0c; --def:#e9e6dc; --ball:#ff8a2a; --accent:#f5c518;
+  --display:"Saira Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 40px;display:grid;gap:20px}
+.team{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.stripe{width:34px;height:14px;background:repeating-linear-gradient(-45deg,var(--accent) 0 6px,var(--bg) 6px 12px);border:1px solid var(--accent)}
+.eyebrow{color:var(--muted)!important}
+header{border-bottom:3px solid var(--accent);padding-bottom:14px}
+header h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,2.8rem);line-height:1;margin:0;letter-spacing:.01em;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--accent)}
+.main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:760px){.main{grid-template-columns:1fr}}
+.court{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:10px}
+svg.c{display:block;width:100%;height:auto}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+button,select{font:600 15px var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:8px 12px;cursor:pointer;min-height:40px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.play{background:var(--accent);color:var(--atk-ink);border-color:var(--accent);min-width:96px}
+.toggles{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;color:var(--muted);font-size:15px}
+.toggles label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.panel{display:grid;gap:16px;min-width:0}
+.now{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px}
+.now .num{font-family:var(--display);font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
+.now h2{font-family:var(--display);font-weight:800;font-size:1.7rem;line-height:1.05;margin:2px 0 8px}
+.now p{margin:0 0 8px}
+.now .def{border-top:1px dashed var(--rule);padding-top:8px;color:var(--muted)}
+.now .def b{color:var(--def)}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+ol.steps button{width:100%;text-align:left;display:flex;gap:10px;align-items:baseline;background:transparent;border-color:transparent}
+ol.steps button .n{font-family:var(--display);font-weight:800;color:var(--muted);width:1.4em;font-variant-numeric:tabular-nums}
+ol.steps button.on{background:var(--surface);border-color:var(--rule)}
+ol.steps button.on .n{color:var(--accent)}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;font-size:14px;color:var(--muted)}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend svg{flex:none}
+h3{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--muted);margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.now .note{margin:8px 0 0;padding:8px 10px;border:1px dashed var(--ball);border-radius:8px;font-size:15px}
+.now .note b{color:var(--ball)}
+
+.topbar{height:12px;background:repeating-linear-gradient(-45deg,var(--accent) 0 10px,var(--bg) 10px 20px)}
+*{box-sizing:border-box}
+body{margin:0}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.back{color:var(--muted);text-decoration:none;font-size:15px}
+.back:hover{color:var(--accent)}
+.vw{max-width:720px;margin:0 auto;padding:32px 16px 48px}
+.vw .kicker{font:800 1rem var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.vw h1.big{font:800 clamp(2.4rem,9vw,3.6rem)/.95 var(--display);margin:6px 0 0;text-wrap:balance;text-transform:uppercase}
+.vw h1.big .yr{color:var(--accent)}
+#v-home .hd{padding-bottom:18px;border-bottom:3px solid var(--accent);margin-bottom:24px}
+#v-home .hd p{color:var(--muted);margin:10px 0 0}
+#v-home ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;color:var(--fg);text-decoration:none;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateX(4px)}
+.card>span:first-child{min-width:0}
+.card .n{display:block;font:800 clamp(1.6rem,7vw,2rem)/1 var(--display);letter-spacing:.02em}
+.card .d{display:block;color:var(--muted);font-size:15px;margin-top:4px}
+.chip{flex:none;font:700 .8rem var(--display);letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:99px;text-align:center;max-width:9.5em}
+.ready{background:var(--accent);color:var(--atk-ink)}
+.wip{border:1px dashed var(--muted);color:var(--muted)}
+.card.is-wip .n{color:var(--muted)}
+#v-home footer{margin-top:32px;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:10px}
+#v-home footer .snail{width:54px;height:auto}
+.box{margin-top:28px;padding:32px 20px;background:var(--surface);border:1px dashed var(--rule);border-radius:12px;text-align:center;display:grid;justify-items:center;gap:8px}
+.box .snail{width:min(260px,80%);height:auto;animation:crawl 6s ease-in-out infinite alternate}
+@keyframes crawl{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
+.box h2{font:800 2rem/1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin:8px 0 0}
+.box p{color:var(--muted);margin:0;max-width:40ch}
+.ground{width:min(300px,90%);height:4px;background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 24px);opacity:.5}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.m-atk{fill:var(--atk)}.m-def{fill:var(--def)}.m-fg{fill:var(--fg)}
+</style></head><body>
+<div class="topbar" aria-hidden="true"></div>
+
+<div class="vw" id="v-home">
+  <div class="hd"><div class="kicker">The Snails · Basket</div><h1 class="big">Schemi The Snails <span class="yr">2026/27</span></h1><p>Tocca uno schema per vedere l'animazione fase per fase.</p></div>
+  <ul><li><a class="card" href="#pugno"><span><span class="n">PUGNO</span><span class="d">Passa e blocca lontano · contro difesa a uomo</span></span><span class="chip ready">Pronto</span></a></li><li><a class="card is-wip" href="#2"><span><span class="n">2</span><span class="d">In preparazione</span></span><span class="chip wip">Work in progress</span></a></li><li><a class="card is-wip" href="#nuovo"><span><span class="n">NUOVO</span><span class="d">In preparazione</span></span><span class="chip wip">Work in progress</span></a></li><li><a class="card is-wip" href="#fondo"><span><span class="n">FONDO</span><span class="d">In preparazione</span></span><span class="chip wip">Work in progress</span></a></li><li><a class="card is-wip" href="#laterale"><span><span class="n">LATERALE</span><span class="d">In preparazione</span></span><span class="chip wip">Work in progress</span></a></li></ul>
+  <footer><svg class="snail" viewBox="0 0 220 120" role="img" aria-label="Lumachina">
+  <path d="M18,104 C18,90 34,86 52,86 L150,86 C176,86 196,94 202,104 Z" fill="var(--accent)"/>
+  <path d="M186,90 C190,70 188,58 182,44" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M198,96 C206,76 208,64 206,50" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="182" cy="42" r="6" fill="var(--fg)"/><circle cx="182" cy="42" r="2.6" fill="var(--ink)"/>
+  <circle cx="206" cy="48" r="6" fill="var(--fg)"/><circle cx="206" cy="48" r="2.6" fill="var(--ink)"/>
+  <circle cx="98" cy="58" r="46" fill="var(--ink)" stroke="var(--accent)" stroke-width="5"/>
+  <path d="M98,58 a5,5 0 1,1 10,0 a10,10 0 1,1 -20,0 a15,15 0 1,1 30,0 a20,20 0 1,1 -40,0 a25,25 0 1,1 50,0 a30,30 0 1,1 -60,0 a35,35 0 1,1 70,0" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M196,104 q6,-6 4,-14" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg><span>Piano piano, ma ci arriviamo.</span></footer>
+</div>
+
+<div class="vw" id="v-wip" hidden>
+  <a class="back" href="#">← Tutti gli schemi</a>
+  <div class="kicker" style="margin-top:18px">Schemi The Snails 2026/27</div>
+  <h1 class="big" id="wipName"></h1>
+  <div class="box"><svg class="snail" viewBox="0 0 220 120" role="img" aria-label="Lumachina">
+  <path d="M18,104 C18,90 34,86 52,86 L150,86 C176,86 196,94 202,104 Z" fill="var(--accent)"/>
+  <path d="M186,90 C190,70 188,58 182,44" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M198,96 C206,76 208,64 206,50" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="182" cy="42" r="6" fill="var(--fg)"/><circle cx="182" cy="42" r="2.6" fill="var(--ink)"/>
+  <circle cx="206" cy="48" r="6" fill="var(--fg)"/><circle cx="206" cy="48" r="2.6" fill="var(--ink)"/>
+  <circle cx="98" cy="58" r="46" fill="var(--ink)" stroke="var(--accent)" stroke-width="5"/>
+  <path d="M98,58 a5,5 0 1,1 10,0 a10,10 0 1,1 -20,0 a15,15 0 1,1 30,0 a20,20 0 1,1 -40,0 a25,25 0 1,1 50,0 a30,30 0 1,1 -60,0 a35,35 0 1,1 70,0" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M196,104 q6,-6 4,-14" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg><div class="ground" aria-hidden="true"></div><h2>Work in progress</h2><p>Lo schema è in preparazione. Arriva presto, con calma da lumaca.</p></div>
+</div>
+
+<div class="wrap" id="v-pugno" hidden>
+  <header><a class="back" href="#">← Tutti gli schemi</a><div style="height:10px"></div>
+    <div class="team"><span class="stripe" aria-hidden="true"></span>The Snails</div>
+    <div class="eyebrow">Schema d'attacco · difesa a uomo · passa e blocca lontano</div>
+    <h1>Pugno</h1>
+    <p>Esterni sulle ali, lunghi negli angoli. Chi passa va a bloccare lontano dalla palla, il bloccato taglia a canestro e gli altri scalano per riempire gli spazi.</p>
+  </header>
+
+  <div class="main">
+    <div class="court">
+      <svg class="c" id="court" viewBox="-10 -10 520 490" role="img" aria-label="Metà campo con giocatori in movimento">
+        <defs>
+          <marker id="ah-atk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="m-atk"/></marker>
+          <marker id="ah-def" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="m-def"/></marker>
+          <marker id="ah-fg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="m-fg"/></marker>
+        </defs>
+        <g id="floor"></g>
+        <g id="trails"></g>
+        <g id="players"></g>
+      </svg>
+      <div class="controls">
+        <button id="restart" aria-label="Ricomincia">⟲ Inizio</button>
+        <button id="prev" aria-label="Fase precedente">◀</button>
+        <button id="play" class="play">▶ Play</button>
+        <button id="next" aria-label="Fase successiva">▶▶</button>
+        <select id="speed" aria-label="Velocità">
+          <option value="0.5">Lento</option>
+          <option value="1" selected>Normale</option>
+          <option value="1.6">Veloce</option>
+        </select>
+      </div>
+      <div class="toggles">
+        <label><input type="checkbox" id="showDef" checked> Mostra difesa</label>
+        <label><input type="checkbox" id="showTr" checked> Mostra tracce</label>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="now" aria-live="polite">
+        <div class="num" id="nowNum"></div>
+        <h2 id="nowTitle"></h2>
+        <p id="nowAtk"></p>
+        <p class="def" id="nowDef"></p>
+        <p class="note" id="nowNote" hidden></p>
+      </div>
+      <div>
+        <h3>Fasi</h3>
+        <ol class="steps" id="steps"></ol>
+      </div>
+      <div>
+        <h3>Legenda</h3>
+        <div class="legend">
+          <div><svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="var(--atk)"/><text x="11" y="15" text-anchor="middle" font-size="11" font-weight="700" fill="var(--atk-ink)">1</text></svg>Attaccante</div>
+          <div><svg width="26" height="22"><text x="13" y="16" text-anchor="middle" font-size="14" font-weight="800" fill="var(--def)">X1</text></svg>Difensore</div>
+          <div><svg width="40" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="var(--atk)" stroke-width="2.5" marker-end="url(#ah-atk)"/></svg>Taglio / movimento</div>
+          <div><svg width="40" height="12"><line x1="2" y1="6" x2="34" y2="6" stroke="var(--fg)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah-fg)"/></svg>Passaggio</div>
+          <div><svg width="40" height="12"><line x1="2" y1="6" x2="34" y2="6" stroke="var(--ball)" stroke-width="2" stroke-dasharray="1.5 4" stroke-linecap="round"/></svg>Passaggio possibile</div>
+          <div><svg width="40" height="14"><line x1="2" y1="7" x2="32" y2="7" stroke="var(--atk)" stroke-width="2.5"/><line x1="32" y1="1" x2="32" y2="13" stroke="var(--atk)" stroke-width="3"/></svg>Blocco</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const S = 500/15, BX = 250, BY = 1.575*S;
+const punta=[250,330], alaDx=[420,230], alaSx=[80,230], angDx=[468,45], angSx=[32,45];
+const blocco=[128,212], canestro=[238,112], blocco2=[302,284], canestro2=[262,112];
+
+const P = [
+  { t:"Allineamento",
+    atk:"1 in punta con palla. 2 in ala destra, 3 in ala sinistra. I lunghi negli angoli: 4 a destra, 5 a sinistra.",
+    def:"Ogni <b>X</b> sta tra il suo uomo e il canestro, un passo spostato verso la palla.",
+    O:[punta,alaDx,alaSx,angDx,angSx], ball:0 },
+  { t:"1 passa a 2",
+    atk:"Il playmaker apre il gioco sul lato destro con il passaggio al 2.",
+    def:"Tutta la difesa si sposta di un passo verso il lato della palla.",
+    O:[punta,alaDx,alaSx,angDx,angSx], ball:1, pass:[0,1] },
+  { t:"Blocco lontano di 1",
+    atk:"Dopo il passaggio, 1 va lontano dalla palla e porta un blocco sul difensore del 3, in ala sinistra.",
+    def:"<b>X1</b> segue il suo uomo e resta vicino al blocco, pronto ad aiutare se il 3 taglia.",
+    O:[blocco,alaDx,alaSx,angDx,angSx], ball:1, mv:{0:"screen"}, dOv:{0:[150,236]} },
+  { t:"3 taglia, 5 sale",
+    atk:"3 sfrutta il blocco ed entra verso canestro: il 2 cerca il passaggio. Intanto 5 sale dall'angolo sinistro all'ala sinistra per liberare lo spazio.",
+    def:"<b>X3</b> resta agganciato al blocco e insegue in ritardo. <b>X5</b> segue il 5 in ala.",
+    O:[blocco,alaDx,canestro,angDx,alaSx], ball:1, via:{2:[[140,252]],4:[[38,150]]}, opt:[1,2], dOv:{2:[106,222]} },
+  { t:"3 esce, 1 torna in punta",
+    atk:"Il passaggio non arriva: 3 continua il taglio sotto canestro ed esce nell'angolo sinistro lasciato libero dal 5. Il 1 torna in punta, il posto rimasto vuoto.",
+    def:"<b>X3</b> segue il 3 in angolo. <b>X1</b> torna sul suo uomo.",
+    O:[punta,alaDx,angSx,angDx,alaSx], ball:1, via:{2:[[150,62]]} },
+  { t:"2 passa a 4",
+    atk:"Il 2 passa al 4 in angolo destro. Il 4 tiene la palla e aspetta i blocchi.",
+    def:"<b>X4</b> va forte sulla palla, gli altri si spostano verso il lato destro.",
+    O:[punta,alaDx,angSx,angDx,alaSx], ball:3, pass:[1,3] },
+  { t:"Blocco lontano di 2",
+    atk:"Come prima, chi ha passato va a bloccare lontano dalla palla: il 2 sale e blocca per il 1 in punta.",
+    def:"<b>X2</b> segue il 2 e resta vicino al blocco, pronto ad aiutare sul taglio.",
+    O:[punta,blocco2,angSx,angDx,alaSx], ball:3, mv:{1:"screen"}, dOv:{1:[326,300]} },
+  { t:"1 taglia, gli altri scalano",
+    atk:"Il 1 usa il blocco ed entra verso canestro: il 4 cerca il passaggio dall'angolo. Intanto 5 scala dall'ala sinistra in punta e 3 sale dall'angolo sinistro all'ala.",
+    def:"<b>X1</b> resta agganciato al blocco e insegue. <b>X5</b> e <b>X3</b> seguono i loro uomini.",
+    O:[canestro2,blocco2,alaSx,angDx,punta], ball:3, via:{0:[[276,318]],2:[[38,150]]}, opt:[3,0], dOv:{0:[314,262]} },
+  { t:"Riempimento finale",
+    atk:"Il passaggio non arriva: il 1 esce nell'angolo sinistro rimasto libero e il 2, dopo il blocco, torna in ala destra. Si torna a uno schieramento equivalente a quello di partenza, con la palla al 4.",
+    def:"Ogni difensore riprende il suo uomo.",
+    note:"<b>Da confermare:</b> nelle fasi 8 e 9 ho ipotizzato io lo scalamento (5 in punta, 3 in ala sinistra, 1 in angolo sinistro, 2 di nuovo in ala destra). Se lo fai giocare diverso, dimmelo.",
+    O:[angSx,alaDx,alaSx,angDx,punta], ball:3, via:{0:[[150,62]]} },
+];
+
+// Difesa a uomo automatica: tra l'uomo e il canestro, spostata verso la palla.
+function autoD(O, ball){
+  return O.map((p,i)=>{
+    const dx=BX-p[0], dy=BY-p[1], l=Math.hypot(dx,dy)||1;
+    const d = i===ball ? 26 : Math.min(40, l*0.35);
+    let q=[p[0]+dx/l*d, p[1]+dy/l*d];
+    if(i!==ball){const b=O[ball]; q=[q[0]+(b[0]-q[0])*0.12, q[1]+(b[1]-q[1])*0.12]}
+    return q;
+  });
+}
+P.forEach(p=>{p.D=autoD(p.O,p.ball); Object.entries(p.dOv||{}).forEach(([i,v])=>p.D[i]=v)});
+
+const $ = id => document.getElementById(id);
+let k = 0, t = 1, playing = false, raf = 0, last = 0, hold = 0;
+
+function drawFloor(){
+  const r3 = 6.75*S, cx = 0.9*S, dy = Math.sqrt(r3*r3 - (BX-cx)**2);
+  const L = 'stroke="var(--line)" stroke-width="3" fill="none"';
+  $("floor").innerHTML = `
+    <rect x="0" y="0" width="500" height="470" fill="var(--floor)"/>
+    <path d="M${cx},0 V${BY+dy} A${r3},${r3} 0 0 0 ${500-cx},${BY+dy} V0 Z" fill="var(--floor2)"/>
+    <rect x="${BX-2.45*S}" y="0" width="${4.9*S}" height="${5.8*S}" fill="var(--paint)"/>
+    <rect x="0" y="0" width="500" height="470" ${L}/>
+    <path d="M${cx},0 V${BY+dy} A${r3},${r3} 0 0 0 ${500-cx},${BY+dy} V0" ${L}/>
+    <rect x="${BX-2.45*S}" y="0" width="${4.9*S}" height="${5.8*S}" ${L}/>
+    <circle cx="${BX}" cy="${5.8*S}" r="${1.8*S}" ${L}/>
+    <path d="M${BX-1.25*S},${BY} A${1.25*S},${1.25*S} 0 0 0 ${BX+1.25*S},${BY}" ${L}/>
+    <path d="M${BX-1.8*S},470 A${1.8*S},${1.8*S} 0 0 1 ${BX+1.8*S},470" ${L}/>
+    <line x1="${BX-0.9*S}" y1="${1.2*S}" x2="${BX+0.9*S}" y2="${1.2*S}" stroke="var(--fg)" stroke-width="4"/>
+    <circle cx="${BX}" cy="${BY}" r="7.5" fill="none" stroke="var(--ball)" stroke-width="3"/>`;
+}
+
+const ease = x => x<.5 ? 2*x*x : 1-Math.pow(-2*x+2,2)/2;
+const lerp = (a,b,u) => [a[0]+(b[0]-a[0])*u, a[1]+(b[1]-a[1])*u];
+function along(pts,u){
+  const seg=[]; let tot=0;
+  for(let i=1;i<pts.length;i++){const l=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]); seg.push(l); tot+=l}
+  if(tot===0) return pts[pts.length-1];
+  let d=u*tot;
+  for(let i=0;i<seg.length;i++){ if(d<=seg[i]||i===seg.length-1) return lerp(pts[i],pts[i+1],seg[i]?Math.min(1,d/seg[i]):1); d-=seg[i] }
+}
+const path = (ph, prev, i) => [prev.O[i], ...((ph.via||{})[i]||[]), ph.O[i]];
+const moved = (a,b) => Math.hypot(a[0]-b[0],a[1]-b[1])>6;
+function shorten(a,b,d){const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return [b[0]-dx/l*d,b[1]-dy/l*d]}
+
+function drawTrails(){
+  const g=$("trails"); g.innerHTML="";
+  if(!$("showTr").checked || k===0) return;
+  const A=P[k-1], B=P[k]; let h="";
+  if($("showDef").checked) B.D.forEach((p,i)=>{const a=A.D[i]; if(moved(a,p)){const e=shorten(a,p,12);
+    h+=`<line x1="${a[0]}" y1="${a[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--def)" stroke-width="1.6" stroke-dasharray="2 4" opacity=".8" marker-end="url(#ah-def)"/>`}});
+  B.O.forEach((b,i)=>{
+    const pts=path(B,A,i); if(!moved(pts[0],b) && pts.length<3) return;
+    const type=(B.mv||{})[i]||"cut", last=pts.length-1, e=shorten(pts[last-1],b,14);
+    const pl=[...pts.slice(0,last),e].map(p=>p.join(",")).join(" ");
+    if(type==="screen"){const a=pts[last-1],dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),nx=-dy/l*11,ny=dx/l*11;
+      h+=`<polyline points="${pl}" fill="none" stroke="var(--atk)" stroke-width="2.6"/><line x1="${e[0]+nx}" y1="${e[1]+ny}" x2="${e[0]-nx}" y2="${e[1]-ny}" stroke="var(--atk)" stroke-width="3.4" stroke-linecap="round"/>`}
+    else h+=`<polyline points="${pl}" fill="none" stroke="var(--atk)" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#ah-atk)"/>`;
+  });
+  if(B.opt){const a=B.O[B.opt[0]], b=B.O[B.opt[1]], s=shorten(b,a,16), e=shorten(a,b,20), m=lerp(s,e,.5);
+    h+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--ball)" stroke-width="2.4" stroke-dasharray="1.5 5" stroke-linecap="round"/>
+        <text x="${m[0]}" y="${m[1]-8}" text-anchor="middle" font-family="Saira Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="15" fill="var(--ball)">opzione</text>`}
+  if(B.pass){const a=B.O[B.pass[0]], b=B.O[B.pass[1]], s=shorten(b,a,14), e=shorten(a,b,16);
+    h+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--fg)" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#ah-fg)"/>`}
+  g.innerHTML=h;
+}
+
+function drawPlayers(){
+  const B=P[k], A=P[Math.max(0,k-1)];
+  const mEnd = B.pass ? .45 : 1, u = k===0 ? 1 : ease(Math.min(t/mEnd,1));
+  const O = B.O.map((p,i)=>k===0?p:along(path(B,A,i),u)), D = B.D.map((p,i)=>lerp(A.D[i],p,u));
+  let h="";
+  if($("showDef").checked) D.forEach((p,i)=>{
+    h+=`<g transform="translate(${p[0]},${p[1]})"><circle r="14" fill="var(--surface)" stroke="var(--def)" stroke-width="2.5"/><text y="5" text-anchor="middle" font-family="Saira Condensed,Arial Narrow,sans-serif" font-weight="800" font-size="15" fill="var(--def)">X${i+1}</text></g>`});
+  O.forEach((p,i)=>{
+    h+=`<g transform="translate(${p[0]},${p[1]})"><circle r="15" fill="var(--atk)"/><text y="6" text-anchor="middle" font-family="Saira Condensed,Arial Narrow,sans-serif" font-weight="800" font-size="18" fill="var(--atk-ink)">${i+1}</text></g>`});
+  let bp;
+  if(B.pass && t>mEnd){const v=ease((t-mEnd)/(1-mEnd)); bp=lerp(O[B.pass[0]],O[B.pass[1]],v)}
+  else bp=O[k===0?B.ball:A.ball];
+  h+=`<circle cx="${bp[0]+13}" cy="${bp[1]-13}" r="7" fill="var(--ball)" stroke="var(--fg)" stroke-width="1.2"/>`;
+  $("players").innerHTML=h;
+}
+
+function renderPanel(){
+  const B=P[k], sd=$("showDef").checked;
+  $("nowNum").textContent=`Fase ${k+1} di ${P.length}`;
+  $("nowTitle").textContent=B.t;
+  $("nowAtk").innerHTML=B.atk;
+  $("nowDef").innerHTML=sd?"Difesa: "+B.def:""; $("nowDef").hidden=!sd;
+  $("nowNote").innerHTML=B.note||""; $("nowNote").hidden=!B.note;
+  [...$("steps").querySelectorAll("button")].forEach((b,i)=>{b.classList.toggle("on",i===k); b.setAttribute("aria-current",i===k?"step":"false")});
+  $("play").textContent = playing ? "❚❚ Pausa" : (k===P.length-1 && t>=1 ? "⟲ Rivedi" : "▶ Play");
+}
+function render(){drawTrails(); drawPlayers(); renderPanel()}
+
+function dur(){return 2000/parseFloat($("speed").value)}
+function tick(now){
+  const dt=now-last; last=now;
+  if(hold>0){hold-=dt; if(hold<=0){ if(k<P.length-1){k++; t=0} else playing=false }}
+  else if(t<1){ t=Math.min(1,t+dt/dur()); if(t>=1 && playing) hold=800/parseFloat($("speed").value) }
+  render();
+  if(playing||t<1||hold>0) raf=requestAnimationFrame(tick); else raf=0;
+}
+function run(){ if(!raf){ last=performance.now(); raf=requestAnimationFrame(tick) } }
+function stop(){ playing=false; hold=0 }
+
+$("play").onclick=()=>{
+  if(playing){stop(); render(); return}
+  if(k===P.length-1 && t>=1){k=0; t=1}
+  playing=true;
+  if(t>=1 && k<P.length-1){k++; t=0}
+  run();
+};
+$("next").onclick=()=>{stop(); if(t<1) t=1; else if(k<P.length-1){k++; t=0} render(); run()};
+$("prev").onclick=()=>{stop(); if(k>0)k--; t=1; render()};
+$("restart").onclick=()=>{stop(); k=0; t=1; render()};
+$("showDef").onchange=render; $("showTr").onchange=render;
+
+P.forEach((p,i)=>{const li=document.createElement("li"), b=document.createElement("button");
+  b.innerHTML=`<span class="n">${i+1}</span><span>${p.t}</span>`;
+  b.onclick=()=>{stop(); if(i===0){k=0;t=1;render()} else {k=i;t=0;render();run()}};
+  li.appendChild(b); $("steps").appendChild(li)});
+
+drawFloor(); render();
+
+const NAMES={"2":"2","nuovo":"Nuovo","fondo":"Fondo","laterale":"Laterale"};
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1)).toLowerCase();
+  const home=document.getElementById("v-home"), wip=document.getElementById("v-wip"), pg=document.getElementById("v-pugno");
+  home.hidden=wip.hidden=pg.hidden=true;
+  if(h==="pugno"){pg.hidden=false; document.title="Pugno · The Snails"}
+  else if(NAMES[h]){stop(); wip.hidden=false; document.getElementById("wipName").textContent=NAMES[h]; document.title=NAMES[h]+" · The Snails"}
+  else {stop(); home.hidden=false; document.title="Schemi The Snails 2026/27"}
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange",route); route();
+</script>
+</body></html>
