@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Schemi The Snails 2026/27</title>
 <meta name="description" content="Schemi d'attacco animati dei The Snails, stagione 2026/27.">
 <meta name="theme-color" content="#0d0d0c">
@@ -9,108 +10,137 @@
 <meta property="og:url" content="https://thesnails.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0c'/%3E%3Ccircle cx='15' cy='15' r='9' fill='none' stroke='%23f5c518' stroke-width='3'/%3E%3Cpath d='M15 15a2 2 0 1 1 4 0a5 5 0 1 1-10 0' fill='none' stroke='%23f5c518' stroke-width='2.4'/%3E%3Crect x='4' y='24' width='25' height='4' rx='2' fill='%23f5c518'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
-/* Layout: campo a metà (SVG) a sinistra, pannello fasi a destra; colonna unica su telefono */
 :root{
-  --bg:#0d0d0c; --surface:#171715; --floor:#1f1e1a; --floor2:#262420; --line:#f5c518; --paint:#3a3210;
-  --fg:#f3efe2; --muted:#a8a395; --rule:#34322b;
-  --atk:#f5c518; --atk-ink:#0d0d0c; --def:#e9e6dc; --ball:#ff8a2a; --accent:#f5c518;
+  --bg:#0d0d0c; --surface:#171715; --surface2:#211f1b; --floor:#1f1e1a; --floor2:#262420; --line:#f5c518; --paint:#3a3210;
+  --fg:#f3efe2; --muted:#b5b09f; --rule:#3a372f;
+  --atk:#f5c518; --ink:#0d0d0c; --def:#e9e6dc; --ball:#ff8a2a; --accent:#f5c518;
   --display:"Saira Condensed","Arial Narrow",system-ui,sans-serif;
   --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
 }
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
-.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 40px;display:grid;gap:20px}
-.team{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-.stripe{width:34px;height:14px;background:repeating-linear-gradient(-45deg,var(--accent) 0 6px,var(--bg) 6px 12px);border:1px solid var(--accent)}
-.eyebrow{color:var(--muted)!important}
-header{border-bottom:3px solid var(--accent);padding-bottom:14px}
-header h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,2.8rem);line-height:1;margin:0;letter-spacing:.01em;text-wrap:balance}
-header p{margin:6px 0 0;color:var(--muted);max-width:62ch}
-.eyebrow{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--accent)}
-.main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
-@media (max-width:760px){.main{grid-template-columns:1fr}}
-.court{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:10px}
-svg.c{display:block;width:100%;height:auto}
-.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
-button,select{font:600 15px var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:8px 12px;cursor:pointer;min-height:40px}
-button:hover{border-color:var(--accent)}
-button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-button.play{background:var(--accent);color:var(--atk-ink);border-color:var(--accent);min-width:96px}
-.toggles{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;color:var(--muted);font-size:15px}
-.toggles label{display:flex;gap:6px;align-items:center;cursor:pointer}
-.panel{display:grid;gap:16px;min-width:0}
-.now{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px}
-.now .num{font-family:var(--display);font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
-.now h2{font-family:var(--display);font-weight:800;font-size:1.7rem;line-height:1.05;margin:2px 0 8px}
-.now p{margin:0 0 8px}
-.now .def{border-top:1px dashed var(--rule);padding-top:8px;color:var(--muted)}
-.now .def b{color:var(--def)}
-ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:4px}
-ol.steps button{width:100%;text-align:left;display:flex;gap:10px;align-items:baseline;background:transparent;border-color:transparent}
-ol.steps button .n{font-family:var(--display);font-weight:800;color:var(--muted);width:1.4em;font-variant-numeric:tabular-nums}
-ol.steps button.on{background:var(--surface);border-color:var(--rule)}
-ol.steps button.on .n{color:var(--accent)}
-.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;font-size:14px;color:var(--muted)}
-.legend div{display:flex;align-items:center;gap:8px}
-.legend svg{flex:none}
-h3{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--muted);margin:0 0 8px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-.now .note{margin:8px 0 0;padding:8px 10px;border:1px dashed var(--ball);border-radius:8px;font-size:15px}
-.now .note b{color:var(--ball)}
-
-.topbar{height:12px;background:repeating-linear-gradient(-45deg,var(--accent) 0 10px,var(--bg) 10px 20px)}
 *{box-sizing:border-box}
-body{margin:0}
-a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.back{color:var(--muted);text-decoration:none;font-size:15px}
-.back:hover{color:var(--accent)}
-.vw{max-width:720px;margin:0 auto;padding:32px 16px 48px}
-.vw .kicker{font:800 1rem var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.vw h1.big{font:800 clamp(2.4rem,9vw,3.6rem)/.95 var(--display);margin:6px 0 0;text-wrap:balance;text-transform:uppercase}
-.vw h1.big .yr{color:var(--accent)}
-#v-home .hd{padding-bottom:18px;border-bottom:3px solid var(--accent);margin-bottom:24px}
-#v-home .hd p{color:var(--muted);margin:10px 0 0}
-#v-home ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;color:var(--fg);text-decoration:none;transition:border-color .15s,transform .15s}
-.card:hover{border-color:var(--accent);transform:translateX(4px)}
-.card>span:first-child{min-width:0}
-.card .n{display:block;font:800 clamp(1.6rem,7vw,2rem)/1 var(--display);letter-spacing:.02em}
-.card .d{display:block;color:var(--muted);font-size:15px;margin-top:4px}
-.chip{flex:none;font:700 .8rem var(--display);letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:99px;text-align:center;max-width:9.5em}
-.ready{background:var(--accent);color:var(--atk-ink)}
-.wip{border:1px dashed var(--muted);color:var(--muted)}
-.card.is-wip .n{color:var(--muted)}
-#v-home footer{margin-top:32px;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:10px}
-#v-home footer .snail{width:54px;height:auto}
-.box{margin-top:28px;padding:32px 20px;background:var(--surface);border:1px dashed var(--rule);border-radius:12px;text-align:center;display:grid;justify-items:center;gap:8px}
-.box .snail{width:min(260px,80%);height:auto;animation:crawl 6s ease-in-out infinite alternate}
-@keyframes crawl{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
-.box h2{font:800 2rem/1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin:8px 0 0}
-.box p{color:var(--muted);margin:0;max-width:40ch}
-.ground{width:min(300px,90%);height:4px;background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 24px);opacity:.5}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
+/* ---------- HOME ---------- */
+.topbar{height:10px;background:repeating-linear-gradient(-45deg,var(--accent) 0 10px,var(--bg) 10px 20px)}
+#v-home{max-width:640px;margin:0 auto;padding:22px 16px 40px}
+.kicker{font:800 15px/1.2 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.big{font:800 clamp(2.2rem,10.5vw,3.4rem)/.95 var(--display);margin:6px 0 0;text-transform:uppercase}
+.big .yr{color:var(--accent)}
+.hd{padding-bottom:16px;border-bottom:3px solid var(--accent);margin-bottom:18px}
+.hd p{color:var(--muted);margin:10px 0 0;font-size:16px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{display:flex;align-items:center;gap:14px;min-height:84px;padding:14px 14px 14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:6px solid var(--accent);border-radius:12px;color:var(--fg);text-decoration:none;transition:transform .12s,border-color .12s}
+.card:hover{border-color:var(--accent)}
+.card:active{transform:scale(.985)}
+.card .tx{flex:1;min-width:0}
+.card .n{display:block;font:800 30px/1 var(--display);letter-spacing:.03em;text-transform:uppercase}
+.card .d{display:block;color:var(--muted);font-size:15px;line-height:1.3;margin-top:5px}
+.card .go{flex:none;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--ink);display:grid;place-items:center}
+.sec{font:800 15px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:28px 0 10px}
+.hleg{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:15px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:12px}
+.hleg div{display:flex;align-items:center;gap:10px;min-width:0}
+.hleg svg{flex:none}
+#v-home footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:10px}
+#v-home footer svg{width:54px;height:auto}
 
-.scr{margin:0 0 10px;padding:10px 12px;border:2px solid var(--accent);border-radius:8px;background:color-mix(in srgb,var(--accent) 8%,transparent)}
-.tag{display:inline-block;font:800 .75rem var(--display);letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:var(--atk-ink);border-radius:4px;padding:1px 6px;margin-right:8px;vertical-align:1px}
-.tag.d{background:var(--def)}
-.now .def{border-top:none;padding-top:0;color:var(--fg)}
-.branchrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.branchrow button[hidden]{display:none}
-button.opt{background:transparent;border:2px dashed var(--ball);color:var(--ball)}
-button.opt:hover{border-style:solid}
-.optdot{font-size:.8em;color:var(--ball);font-weight:600;white-space:nowrap}
-.num.isopt{color:var(--ball)!important}
-.m-atk{fill:var(--atk)}.m-def{fill:var(--def)}.m-fg{fill:var(--fg)}
+/* ---------- PLAY: telefono ---------- */
+#v-play{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:600px;margin:0 auto}
+.ph{flex:none;display:flex;align-items:center;gap:6px;height:52px;padding:0 10px 0 2px;border-bottom:3px solid var(--accent)}
+.back{flex:none;width:48px;height:48px;display:grid;place-items:center;color:var(--fg);text-decoration:none;border-radius:10px}
+.back:active{background:var(--surface)}
+.ph .ttl{min-width:0;flex:1;display:flex;align-items:baseline;gap:10px}
+.ph h1{margin:0;font:800 26px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.ph .k{font:700 14px/1.1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stage{flex:none;background:var(--floor)}
+.courtwrap{position:relative;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+svg#court{display:block;width:100%;height:auto;max-height:54vh;max-height:54dvh;margin:0 auto}
+.swipehint{position:absolute;right:8px;bottom:6px;font-size:14px;color:var(--muted);background:rgba(13,13,12,.75);padding:2px 8px;border-radius:99px;pointer-events:none;transition:opacity .4s}
+.dleg{display:flex;justify-content:space-between;align-items:center;gap:4px;padding:4px 8px;font-size:14px;line-height:1.2;color:var(--muted);background:var(--bg);border-bottom:1px solid var(--rule);white-space:nowrap;overflow:hidden}
+.dleg span{display:inline-flex;align-items:center;gap:4px}
+.dleg svg{flex:none}
+.info{flex:1;min-height:0;overflow-y:auto;padding:8px 16px 16px;overscroll-behavior:contain}
+.prog{display:flex;align-items:center;gap:10px;min-height:24px}
+.dots{display:flex;gap:6px;align-items:center}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--rule);transition:transform .2s,background .2s}
+.dot.done{background:#7a7150}
+.dot.on{background:var(--accent);transform:scale(1.35)}
+.optmode .dot.on{background:var(--ball)}
+.pcount{font:700 15px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.optmode .pcount{color:var(--ball)}
+.trow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 2px}
+#nowTitle{font:800 26px/1.05 var(--display);margin:0;letter-spacing:.01em}
+.fin{font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:var(--ink);padding:5px 9px;border-radius:6px;animation:pop .35s ease-out}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+#nowSay{margin:0;font-size:17px;line-height:1.35}
+.optrow{margin-top:12px;display:grid;gap:8px}
+.btn-opt{min-height:52px;width:100%;border:2px dashed var(--ball);background:rgba(255,138,42,.08);color:var(--ball);border-radius:12px;padding:6px 12px;font:800 19px/1.1 var(--display);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.btn-opt small{font:600 15px var(--body);letter-spacing:0;text-transform:none;color:var(--fg)}
+.optbanner{font:800 15px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ball)}
+.btn-main{min-height:48px;width:100%;border:2px solid var(--fg);background:transparent;border-radius:12px;font:800 18px var(--display);letter-spacing:.04em;text-transform:uppercase}
+details{margin-top:14px;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+summary{min-height:48px;display:flex;align-items:center;gap:8px;padding:0 14px;font:800 17px var(--display);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font-size:24px;line-height:1;color:var(--accent)}
+details[open] summary::after{content:"–"}
+.det{padding:0 14px 14px;font-size:15px;line-height:1.45}
+.det h4{margin:12px 0 2px;font:800 14px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.det h4:first-child{margin-top:0}
+.det p{margin:0}
+.det b{color:var(--accent);font-weight:700}
+.ctrl{flex:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:8px;padding:8px 10px;padding-bottom:calc(8px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--rule)}
+.ctrl button{min-height:52px;border-radius:12px;border:1px solid var(--rule);background:var(--bg);font:800 19px/1 var(--display);letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 6px;white-space:nowrap;overflow:hidden;touch-action:manipulation}
+.ctrl button svg{flex:none}
+.ctrl .play{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.ctrl button:disabled{opacity:.35;cursor:default}
+
+/* ---------- PLAY: desktop ---------- */
+@media (min-width:900px){
+  #v-play{max-width:1140px;display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-rows:auto 1fr auto;column-gap:24px;padding:0 20px}
+  .ph{grid-column:1/-1}
+  .stage{grid-column:1;grid-row:2/4;align-self:start;margin-top:16px;border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+  svg#court{max-height:calc(100dvh - 130px)}
+  .info{grid-column:2;grid-row:2;padding:16px 0}
+  .ctrl{grid-column:2;grid-row:3;background:transparent;border-top:none;padding:0 0 16px}
+}
+@media (prefers-reduced-motion:reduce){.fin{animation:none}.card{transition:none}}
 </style></head><body>
-<div class="topbar" aria-hidden="true"></div>
 
-<div class="vw" id="v-home">
-  <div class="hd"><div class="kicker">The Snails · Basket</div><h1 class="big">Schemi The Snails <span class="yr">2026/27</span></h1><p>Tocca uno schema per vedere l'animazione fase per fase.</p></div>
-  <ul><li><a class="card" href="#pugno"><span><span class="n">PUGNO</span><span class="d">Passa e blocca lontano · difesa a uomo</span></span><span class="chip ready">Pronto</span></a></li><li><a class="card" href="#2"><span><span class="n">2</span><span class="d">Blocco sul lato palla, il 5 al centro dell'area</span></span><span class="chip ready">Pronto</span></a></li><li><a class="card" href="#nuovo"><span><span class="n">NUOVO</span><span class="d">Tre blocchi del 4, il 5 entra dietro al 3</span></span><span class="chip ready">Pronto</span></a></li><li><a class="card" href="#fondo"><span><span class="n">FONDO</span><span class="d">Rimessa dal fondo: taglio del 4 o tiro del 2</span></span><span class="chip ready">Pronto</span></a></li><li><a class="card" href="#laterale"><span><span class="n">LATERALE</span><span class="d">Rimessa laterale: doppio blocco e taglio del 1</span></span><span class="chip ready">Pronto</span></a></li></ul>
-  <footer><svg class="snail" viewBox="0 0 220 120" role="img" aria-label="Lumachina">
+<div id="v-home">
+  <div class="topbar" aria-hidden="true"></div>
+  <div style="height:18px"></div>
+  <div class="hd">
+    <div class="kicker">The Snails · Basket</div>
+    <h1 class="big">Schemi The Snails <span class="yr">2026/27</span></h1>
+    <p>Tocca uno schema, poi Play.</p>
+  </div>
+  <ul class="list">
+    <li><a class="card" href="#pugno"><span class="tx"><span class="n">Pugno</span><span class="d">Passa e blocca lontano, il bloccato taglia</span></span><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+    <li><a class="card" href="#2"><span class="tx"><span class="n">2</span><span class="d">Blocco sul lato palla, il 5 al centro dell'area</span></span><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+    <li><a class="card" href="#nuovo"><span class="tx"><span class="n">Nuovo</span><span class="d">Tre blocchi del 4, il 5 entra dietro al 3</span></span><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+    <li><a class="card" href="#fondo"><span class="tx"><span class="n">Fondo</span><span class="d">Rimessa dal fondo: taglio del 4 o tiro del 2</span></span><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+    <li><a class="card" href="#laterale"><span class="tx"><span class="n">Laterale</span><span class="d">Rimessa laterale: doppio blocco e taglio del 1</span></span><span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+  </ul>
+
+  <h2 class="sec">Legenda</h2>
+  <div class="hleg">
+    <div><svg width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="15" fill="var(--atk)" stroke="var(--ink)" stroke-width="1.5"/><text x="17" y="17" dy=".36em" text-anchor="middle" font-family="Saira Condensed,Arial Narrow,sans-serif" font-weight="800" font-size="20" fill="var(--ink)">1</text></svg>Attaccante</div>
+    <div><svg width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="var(--surface)" stroke="var(--def)" stroke-width="2.5"/><text x="17" y="17" dy=".36em" text-anchor="middle" font-family="Saira Condensed,Arial Narrow,sans-serif" font-weight="800" font-size="15" fill="var(--def)">X1</text></svg>Difensore</div>
+    <div><svg width="34" height="34" viewBox="-17 -17 34 34"><circle r="12" fill="var(--ball)" stroke="#2a1300" stroke-width="1.6"/><path d="M-12,0H12M0,-12V12M-8.4,-8.6C-3.6,-4.2 -3.6,4.2 -8.4,8.6M8.4,-8.6C3.6,-4.2 3.6,4.2 8.4,8.6" fill="none" stroke="#2a1300" stroke-width="1.3"/></svg>Palla</div>
+    <div><svg width="44" height="16" viewBox="0 0 44 16"><line x1="2" y1="8" x2="34" y2="8" stroke="var(--atk)" stroke-width="3"/><path d="M32,2 L42,8 L32,14z" fill="var(--atk)"/></svg>Movimento</div>
+    <div><svg width="44" height="16" viewBox="0 0 44 16"><line x1="2" y1="8" x2="34" y2="8" stroke="var(--fg)" stroke-width="2.5" stroke-dasharray="6 4"/><path d="M32,2 L42,8 L32,14z" fill="var(--fg)"/></svg>Passaggio</div>
+    <div><svg width="44" height="24" viewBox="0 0 44 24"><line x1="8" y1="12" x2="36" y2="12" stroke="var(--ink)" stroke-width="12" stroke-linecap="round"/><line x1="8" y1="12" x2="36" y2="12" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/></svg>Blocco</div>
+  </div>
+
+  <footer><svg viewBox="0 0 220 120" role="img" aria-label="Lumachina">
   <path d="M18,104 C18,90 34,86 52,86 L150,86 C176,86 196,94 202,104 Z" fill="var(--accent)"/>
   <path d="M186,90 C190,70 188,58 182,44" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
   <path d="M198,96 C206,76 208,64 206,50" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
@@ -119,147 +149,140 @@ button.opt:hover{border-style:solid}
   <circle cx="98" cy="58" r="46" fill="var(--ink)" stroke="var(--accent)" stroke-width="5"/>
   <path d="M98,58 a5,5 0 1,1 10,0 a10,10 0 1,1 -20,0 a15,15 0 1,1 30,0 a20,20 0 1,1 -40,0 a25,25 0 1,1 50,0 a30,30 0 1,1 -60,0 a35,35 0 1,1 70,0" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
   <path d="M196,104 q6,-6 4,-14" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
-</svg><span>Piano piano, ma ci arriviamo.</span></footer>
+  </svg><span>Piano piano, ma ci arriviamo.</span></footer>
 </div>
 
+<div id="v-play" hidden>
+  <div class="ph">
+    <a class="back" id="backHome" href="#" aria-label="Tutti gli schemi"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="ttl"><h1 id="playTitle"></h1><span class="k">Schemi The Snails 2026/27</span></div>
+  </div>
 
-<div class="wrap" id="v-play" hidden>
-  <header><a class="back" href="#">← Tutti gli schemi</a><div style="height:10px"></div>
-    <div class="team"><span class="stripe" aria-hidden="true"></span>The Snails</div>
-    <div class="eyebrow" id="playEyebrow"></div>
-    <h1 id="playTitle"></h1>
-    <p id="playIntro"></p>
-  </header>
-
-  <div class="main">
-    <div class="court">
-      <svg class="c" id="court" viewBox="-30 -42 574 524" role="img" aria-label="Metà campo con giocatori in movimento">
+  <div class="stage">
+    <div class="courtwrap" id="courtwrap">
+      <svg id="court" viewBox="-10 -48 556 424" role="img" aria-label="Metà campo: canestro in alto, giocatori in movimento">
         <defs>
-          <marker id="ah-atk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="m-atk"/></marker>
-          <marker id="ah-def" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="m-def"/></marker>
-          <marker id="ah-fg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="m-fg"/></marker>
+          <marker id="ah-atk" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--atk)"/></marker>
+          <marker id="ah-fg" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--fg)"/></marker>
+          <marker id="ah-ball" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ball)"/></marker>
         </defs>
         <g id="floor"></g>
-        <g id="trails"></g>
-        <g id="marks"></g>
-        <g id="players"></g>
+        <g id="lines"></g>
+        <g id="defs"></g>
+        <g id="bars"></g>
+        <g id="atks"></g>
+        <g id="labels"></g>
+        <g id="ballLayer"></g>
       </svg>
-      <div class="controls">
-        <button id="restart" aria-label="Ricomincia">⟲ Inizio</button>
-        <button id="prev" aria-label="Fase precedente">◀</button>
-        <button id="play" class="play">▶ Play</button>
-        <button id="next" aria-label="Fase successiva">▶▶</button>
-        <select id="speed" aria-label="Velocità">
-          <option value="0.5">Lento</option>
-          <option value="1" selected>Normale</option>
-          <option value="1.6">Veloce</option>
-        </select>
-      </div>
-      <div class="toggles">
-        <label><input type="checkbox" id="showDef" checked> Mostra difesa</label>
-        <label><input type="checkbox" id="showMk" checked> Mostra marcature</label>
-        <label><input type="checkbox" id="showTr" checked> Mostra tracce</label>
-      </div>
+      <span class="swipehint" id="swipehint">← scorri →</span>
     </div>
+    <div class="dleg" aria-label="Legenda difesa">
+      <span><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7.5" fill="var(--def)"/></svg>Sulla palla</span>
+      <span><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="var(--surface)" stroke="var(--def)" stroke-width="2.2"/></svg>Anticipo</span>
+      <span><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="var(--surface)" stroke="var(--def)" stroke-width="2" stroke-dasharray="3 2.4"/></svg>Aiuto</span>
+      <span><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="var(--surface)" stroke="var(--ball)" stroke-width="2.6"/></svg>Sul blocco</span>
+    </div>
+  </div>
 
-    <div class="panel">
-      <div class="now" aria-live="polite">
-        <div class="num" id="nowNum"></div>
-        <h2 id="nowTitle"></h2>
-        <p id="nowAtk"></p>
-        <div class="scr" id="nowScr" hidden></div>
-        <p class="def" id="nowDef"></p>
-        <div class="branchrow">
-          <button id="branchBtn" class="opt" hidden></button>
-          <button id="backMain" hidden>↩ Torna allo schema</button>
-        </div>
-      </div>
-      <div>
-        <h3>Fasi</h3>
-        <ol class="steps" id="steps"></ol>
-      </div>
-      <div>
-        <h3>Legenda attacco</h3>
-        <div class="legend">
-          <div><svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="var(--atk)"/><text x="11" y="15" text-anchor="middle" font-size="11" font-weight="700" fill="var(--atk-ink)">1</text></svg>Attaccante</div>
-          <div><svg width="40" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="var(--atk)" stroke-width="2.5" marker-end="url(#ah-atk)"/></svg>Taglio / movimento</div>
-          <div><svg width="40" height="12"><line x1="2" y1="6" x2="34" y2="6" stroke="var(--fg)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah-fg)"/></svg>Passaggio</div>
-          <div><svg width="40" height="12"><line x1="2" y1="6" x2="34" y2="6" stroke="var(--ball)" stroke-width="2" stroke-dasharray="1.5 4" stroke-linecap="round"/></svg>Passaggio possibile</div>
-          <div><svg width="40" height="22"><circle cx="20" cy="11" r="9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3"/></svg>Punto dove fermarsi per il blocco</div>
-          <div><svg width="40" height="22"><line x1="8" y1="11" x2="32" y2="11" stroke="var(--atk-ink)" stroke-width="10" stroke-linecap="round"/><line x1="8" y1="11" x2="32" y2="11" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"/></svg>Blocco (corpo del bloccante)</div>
-        </div>
-        <h3 style="margin-top:14px">Legenda difesa</h3>
-        <div class="legend">
-          <div><svg width="26" height="26"><circle cx="13" cy="13" r="11" fill="var(--def)"/><text x="13" y="17" text-anchor="middle" font-size="11" font-weight="800" fill="var(--atk-ink)">X</text></svg>Sulla palla</div>
-          <div><svg width="26" height="26"><circle cx="13" cy="13" r="11" fill="var(--surface)" stroke="var(--def)" stroke-width="2.5"/><text x="13" y="17" text-anchor="middle" font-size="11" font-weight="800" fill="var(--def)">X</text></svg>In anticipo (a un passaggio)</div>
-          <div><svg width="26" height="26"><circle cx="13" cy="13" r="11" fill="var(--surface)" stroke="var(--def)" stroke-width="2" stroke-dasharray="3 3"/><text x="13" y="17" text-anchor="middle" font-size="11" font-weight="800" fill="var(--def)">X</text></svg>In aiuto (lato debole)</div>
-          <div><svg width="26" height="26"><circle cx="13" cy="13" r="11" fill="var(--surface)" stroke="var(--ball)" stroke-width="2.5"/><text x="13" y="17" text-anchor="middle" font-size="11" font-weight="800" fill="var(--ball)">X</text></svg>Fermato dal blocco</div>
-          <div><svg width="40" height="12"><line x1="2" y1="6" x2="36" y2="6" stroke="var(--def)" stroke-width="1.4" stroke-dasharray="2 3" opacity=".6"/></svg>Marcatura (difensore → suo uomo)</div>
-        </div>
-      </div>
+  <div class="info" id="info" aria-live="polite">
+    <div class="prog"><div class="dots" id="dots" aria-hidden="true"></div><span class="pcount" id="pcount"></span></div>
+    <div class="trow"><h2 id="nowTitle"></h2><span class="fin" id="fin" hidden></span></div>
+    <p id="nowSay"></p>
+    <div class="optrow">
+      <button class="btn-opt" id="optBtn" hidden></button>
+      <div class="optbanner" id="optBanner" hidden></div>
+      <button class="btn-main" id="mainBtn" hidden>↩ Torna allo schema</button>
     </div>
+    <details id="det">
+      <summary>Dettagli: blocco e difesa</summary>
+      <div class="det" id="detBody"></div>
+    </details>
+  </div>
+
+  <div class="ctrl">
+    <button id="prev" aria-label="Fase precedente"><svg width="14" height="14" viewBox="0 0 18 18"><path d="M12 2L5 9l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Indietro</button>
+    <button id="play" class="play"></button>
+    <button id="next" aria-label="Fase successiva">Avanti<svg width="14" height="14" viewBox="0 0 18 18"><path d="M6 2l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
 </div>
 
 <script>
-/* ===== Posizioni (metà campo: x 0-500 da sinistra a destra, y 0 = linea di fondo) ===== */
+"use strict";
+/* =====================================================================
+   DATI DEGLI SCHEMI
+   Metà campo: x 0-500 da sinistra a destra, y 0 = linea di fondo (in alto).
+   O = attaccanti 1-5 · ball = chi ha la palla · pass = [da, a] · via = punti intermedi
+   screen = blocco da piazzare · screenOn = blocco attivo · mv = tipo di movimento
+   t = titolo breve · s = cosa succede · atk/scr/def = testo del pannello Dettagli
+   dOv = posizione imposta del difensore (solo contatto sul blocco o errore voluto)
+   ===================================================================== */
 const punta=[250,330], alaDx=[420,230], alaSx=[80,230], angDx=[468,45], angSx=[32,45];
 const ala5=[74,262], lunetta=[250,168], postDx=[350,62], postSx=[150,62];
 
 /* ===================== PUGNO ===================== */
 const PUGNO = (()=>{ const SP1=[153,184], CAN1=[238,112], SP2=[274,262], CAN2=[262,112];
-return { id:"pugno", name:"Pugno", eyebrow:"Schema d'attacco · difesa a uomo · passa e blocca lontano",
- intro:"Esterni sulle ali, lunghi negli angoli. Chi passa va a bloccare lontano dalla palla, il bloccato taglia a canestro e gli altri scalano per riempire gli spazi.",
+return { id:"pugno", name:"Pugno",
  phases:[
   { t:"Allineamento",
+    s:"1 in punta con palla. Esterni sulle ali, lunghi negli angoli.",
     atk:"1 in punta con palla. 2 in ala destra, 3 in ala sinistra. I lunghi negli angoli: 4 a destra, 5 a sinistra.",
-    def:"<b>X1</b> sulla palla, a un braccio, tra l'uomo e il canestro. <b>X2</b> e <b>X3</b> in anticipo: mano e piede sulla linea di passaggio verso l'ala. <b>X4</b> e <b>X5</b> sono a due passaggi: un passo verso l'area, vedono uomo e palla.",
+    def:"<b>X1</b> sulla palla, a un braccio, tra l'uomo e il canestro. <b>X2</b> e <b>X3</b> in anticipo: mano e piede sulla linea di passaggio verso l'ala. <b>X4</b> e <b>X5</b> sono a due passaggi: in aiuto verso il centro dell'area, vedono uomo e palla.",
     O:[punta,alaDx,alaSx,angDx,angSx], ball:0 },
   { t:"1 passa a 2",
+    s:"Il 1 apre a destra: passaggio al 2 in ala.",
     atk:"Il playmaker apre il gioco sul lato destro con il passaggio al 2.",
-    def:"Al passaggio tutta la difesa salta verso la palla. <b>X2</b> sulla palla. <b>X1</b> e <b>X4</b> in anticipo. <b>X3</b> e <b>X5</b> sono sul lato debole: in aiuto, con un piede vicino all'area.",
-    O:[punta,alaDx,alaSx,angDx,angSx], ball:1, pass:[0,1], dOv:{2:[124,212]} },
-  { t:"Blocco lontano di 1",
+    def:"Al passaggio tutta la difesa salta verso la palla. <b>X2</b> sulla palla. <b>X1</b> e <b>X4</b> in anticipo. <b>X3</b> e <b>X5</b> sono sul lato debole: in aiuto, verso il centro dell'area.",
+    O:[punta,alaDx,alaSx,angDx,angSx], ball:1, pass:[0,1] },
+  { t:"1 blocca lontano per 3",
+    s:"Chi passa va a bloccare lontano: il 1 blocca il difensore del 3.",
     atk:"Dopo il passaggio, 1 va lontano dalla palla a bloccare il difensore del 3. Il 3 aspetta fermo che il blocco sia piazzato.",
     scr:"<b>1</b> si ferma attaccato a <b>X3</b>, dalla parte del canestro (tra X3 e il canestro). Piedi larghi, braccia al petto, fermo: se ti muovi è fallo. Il 3 nel frattempo porta il suo difensore verso il blocco.",
     def:"<b>X3</b> guarda la palla e non vede arrivare il blocco: è l'errore che l'attacco cerca. <b>X1</b> segue il suo uomo restando in aiuto. <b>X2</b> sulla palla.",
     O:[SP1,alaDx,alaSx,angDx,angSx], ball:1, mv:{0:"screen"}, screen:[{by:0,for:2,at:SP1}], dOv:{2:[124,212]} },
   { t:"3 taglia, 5 sale",
+    s:"Il 3 sfiora il blocco e taglia a canestro. Il 5 sale in ala.",
     atk:"Il 3 passa spalla a spalla col bloccante, gira sopra il blocco e taglia verso canestro: il 2 cerca il passaggio. Intanto il 5 sale dall'angolo sinistro all'ala sinistra per liberare spazio.",
     scr:"Il bloccante <b>1</b> resta fermo finché il 3 non è passato. Il 3 deve sfiorargli la spalla: se passa largo, X3 lo segue senza toccare il blocco.",
-    def:"<b>X3</b> resta fermato sul blocco e insegue in ritardo. <b>X1</b> è in aiuto e fa un passo sul taglio per rallentarlo. <b>X4</b> guarda il taglio e perde di vista il suo uomo: il 4 può andare in backdoor.",
+    def:"<b>X3</b> resta fermato sul blocco e insegue in ritardo. <b>X1</b> fa un passo in aiuto sul taglio per rallentarlo, poi recupera. <b>X4</b> guarda il taglio e rischia di perdere di vista il suo uomo: il 4 può andare in backdoor.",
     O:[SP1,alaDx,CAN1,angDx,ala5], ball:1, via:{2:[[130,244],[172,206],[200,160]],4:[[38,160]]}, opt:[[1,2]],
-    screenOn:[{by:0,for:2,at:SP1}], roles:{2:"bloccato"}, dOv:{2:[127,210],0:[200,172],4:[104,246]},
-    branch:{ label:"Opzione: backdoor del 4", phases:[
+    screenOn:[{by:0,for:2,at:SP1}], roles:{2:"bloccato"}, dOv:{2:[127,210]},
+    branch:{ label:"Backdoor del 4", phases:[
       { t:"X4 si gira sul taglio",
+        s:"Il 3 esce in angolo. X4 si gira verso l'area e perde il 4.",
         atk:"Il 3 attraversa l'area ed esce verso l'angolo sinistro. Il 4 resta fermo in angolo e guarda il suo difensore.",
         def:"<b>X4</b> si gira verso l'area per aiutare sul 3 e dà le spalle al suo uomo. È l'errore che il 4 aspetta.",
-        O:[SP1,alaDx,angSx,angDx,ala5], ball:1, via:{2:[[150,62]]}, dOv:{3:[392,92],0:[204,176],4:[104,246]}, roles:{3:"aiuto"} },
+        O:[SP1,alaDx,angSx,angDx,ala5], ball:1, via:{2:[[150,62]]}, dOv:{3:[392,92]}, roles:{3:"aiuto"} },
       { t:"Backdoor del 4",
+        s:"Il 4 taglia lungo il fondo alle spalle di X4. Il 2 lo serve.",
         atk:"Appena X4 si gira, il 4 taglia lungo la linea di fondo alle sue spalle. Il 2 lo serve con un passaggio schiacciato a terra: appoggio a canestro.",
         def:"<b>X4</b> si accorge tardi del taglio e insegue. Per difendere: <b>X4</b> deve vedere sempre uomo e palla, senza girare la testa.",
-        O:[SP1,alaDx,angSx,[284,40],ala5], ball:3, via:{3:[[400,24],[330,22]]}, pass:[1,3], dOv:{3:[352,66],0:[214,160],4:[108,244]}, roles:{3:"aiuto"}, finish:"CANESTRO" }
+        O:[SP1,alaDx,angSx,[284,40],ala5], ball:3, via:{3:[[400,24],[330,22]]}, pass:[1,3], dOv:{3:[352,66]}, roles:{3:"aiuto"}, finish:"Canestro" }
     ]}},
   { t:"3 esce, 1 torna in punta",
+    s:"Niente passaggio: il 3 esce in angolo sinistro, il 1 torna in punta.",
     atk:"Il passaggio non arriva: 3 continua il taglio sotto canestro ed esce nell'angolo sinistro lasciato libero dal 5. 1 torna in punta, il posto rimasto vuoto.",
     def:"<b>X3</b> recupera e segue il 3 in angolo. <b>X1</b> torna sul suo uomo in punta. Si torna alle posizioni base: palla, anticipo, aiuto.",
     O:[punta,alaDx,angSx,angDx,ala5], ball:1, via:{2:[[150,62]]} },
   { t:"2 passa a 4",
+    s:"Il 2 passa al 4 in angolo destro. Il 4 aspetta i blocchi.",
     atk:"Il 2 passa al 4 in angolo destro. Il 4 tiene la palla e aspetta i blocchi.",
-    def:"<b>X4</b> va forte sulla palla e chiude la linea di fondo. <b>X2</b> in anticipo. Gli altri saltano verso la palla: <b>X1</b>, <b>X3</b> e <b>X5</b> in aiuto.",
-    O:[punta,alaDx,angSx,angDx,ala5], ball:3, pass:[1,3], dOv:{0:[276,288]} },
-  { t:"Blocco lontano di 2",
+    def:"<b>X4</b> va forte sulla palla e chiude la linea di fondo. <b>X2</b> in anticipo. Gli altri saltano verso la palla, in aiuto.",
+    O:[punta,alaDx,angSx,angDx,ala5], ball:3, pass:[1,3] },
+  { t:"2 blocca lontano per 1",
+    s:"Chi passa blocca lontano: il 2 sale e blocca il difensore del 1.",
     atk:"Come prima, chi ha passato va a bloccare lontano dalla palla: il 2 sale e blocca il difensore del 1 in punta.",
     scr:"<b>2</b> si ferma attaccato a <b>X1</b>, dalla parte del canestro (sotto di lui). Piedi larghi, fermo. Il 1 fa un passo verso sinistra per portare X1 sul blocco.",
     def:"<b>X1</b> è in aiuto e guarda la palla in angolo. <b>X2</b> segue il 2 e si prepara ad aiutare sul taglio.",
     O:[punta,SP2,angSx,angDx,ala5], ball:3, mv:{1:"screen"}, screen:[{by:1,for:0,at:SP2}], dOv:{0:[276,288]} },
   { t:"1 taglia, gli altri scalano",
+    s:"Il 1 taglia a canestro. Il 5 va in punta, il 3 sale in ala.",
     atk:"Il 1 passa spalla a spalla col bloccante e taglia verso canestro: il 4 cerca il passaggio dall'angolo. Intanto 5 scala dall'ala sinistra in punta e 3 sale dall'angolo sinistro all'ala.",
     scr:"Il bloccante <b>2</b> resta fermo finché il 1 non è passato.",
-    def:"<b>X1</b> resta fermato sul blocco e insegue. <b>X2</b> fa un passo in aiuto sul taglio. <b>X5</b> e <b>X3</b> seguono i loro uomini.",
+    def:"<b>X1</b> resta fermato sul blocco e insegue. <b>X2</b> fa un passo in aiuto sul taglio, poi recupera. <b>X5</b> e <b>X3</b> seguono i loro uomini.",
     O:[CAN2,SP2,alaSx,angDx,punta], ball:3, via:{0:[[300,300],[298,236]],2:[[38,150]]}, opt:[[3,0]],
-    screenOn:[{by:1,for:0,at:SP2}], roles:{0:"bloccato"}, dOv:{0:[276,288],1:[324,212],4:[236,296]} },
+    screenOn:[{by:1,for:0,at:SP2}], roles:{0:"bloccato"}, dOv:{0:[276,288]} },
   { t:"Riempimento finale",
+    s:"Il 1 esce in angolo, il 2 torna in ala: come all'inizio.",
     atk:"Il passaggio non arriva: il 1 esce nell'angolo sinistro rimasto libero e il 2, dopo il blocco, torna in ala destra. Si torna a uno schieramento uguale a quello di partenza, con la palla al 4.",
     def:"Ogni difensore riprende il suo uomo: <b>X4</b> sulla palla, <b>X2</b> in anticipo, gli altri in aiuto.",
     O:[angSx,alaDx,alaSx,angDx,punta], ball:3, via:{0:[[150,62]]} },
@@ -267,213 +290,329 @@ return { id:"pugno", name:"Pugno", eyebrow:"Schema d'attacco · difesa a uomo ·
 
 /* ===================== 2 ===================== */
 const DUE = (()=>{ const SPA=[292,290], X1s=[262,306], c5=[250,116];
-return { id:"2", name:"2", eyebrow:"Schema d'attacco · difesa a uomo · blocco sul lato palla",
- intro:"Il 4 blocca per il playmaker che taglia in angolo, il 5 attraversa sotto canestro e si prende il centro dell'area. Si finisce con il passaggio al 5, diretto o dall'alto passando dal 4.",
+return { id:"2", name:"2",
  phases:[
   { t:"Allineamento",
+    s:"1 in punta, 2 e 3 sulle ali, 4 in lunetta, 5 post destro.",
     atk:"1 in punta con palla, 2 in ala destra, 3 in ala sinistra. 4 dentro l'area vicino alla lunetta, 5 in post basso destro.",
-    def:"<b>X1</b> sulla palla. <b>X2</b> e <b>X3</b> in anticipo sulle ali. <b>X4</b> e <b>X5</b> stanno tra il loro uomo e il canestro.",
-    O:[punta,alaDx,alaSx,lunetta,postDx], ball:0, dOv:{3:[250,136]} },
+    def:"<b>X1</b> sulla palla. <b>X2</b>, <b>X3</b> e <b>X4</b> in anticipo: sono a un passaggio. <b>X5</b> è a due passaggi, in aiuto.",
+    O:[punta,alaDx,alaSx,lunetta,postDx], ball:0 },
   { t:"1 passa a 2",
+    s:"Il playmaker passa al 2 in ala destra.",
     atk:"Il playmaker passa al 2 in ala destra.",
     def:"La difesa salta verso la palla: <b>X2</b> sulla palla, <b>X1</b> in anticipo, <b>X3</b> in aiuto sul lato debole.",
-    O:[punta,alaDx,alaSx,lunetta,postDx], ball:1, pass:[0,1], dOv:{0:X1s} },
-  { t:"Blocco del 4 sul lato palla",
+    O:[punta,alaDx,alaSx,lunetta,postDx], ball:1, pass:[0,1] },
+  { t:"4 blocca per 1",
+    s:"Il 4 esce dall'area e blocca il difensore del 1.",
     atk:"Il 4 esce dall'area e va a bloccare il difensore del 1, dalla parte della palla. Il 1 aspetta fermo.",
     scr:"<b>4</b> si ferma attaccato a <b>X1</b>, sul suo fianco destro (lato palla). Piedi larghi, fermo. Il 1 prima fa finta di andare verso il centro, così X1 si sposta e finisce sul blocco.",
     def:"<b>X1</b> guarda la palla e il suo uomo: non deve farsi sorprendere. <b>X4</b> segue il 4 e avvisa a voce: «blocco!».",
-    O:[punta,alaDx,alaSx,SPA,postDx], ball:1, mv:{3:"screen"}, screen:[{by:3,for:0,at:SPA}], dOv:{0:X1s,3:[338,236]} },
-  { t:"1 taglia in angolo, 5 attraversa",
+    O:[punta,alaDx,alaSx,SPA,postDx], ball:1, mv:{3:"screen"}, screen:[{by:3,for:0,at:SPA}], dOv:{0:X1s} },
+  { t:"1 in angolo, 5 attraversa",
+    s:"Il 1 usa il blocco e va in angolo. Il 5 attraversa sul fondo.",
     atk:"Il 1 finta verso il centro, poi taglia sul lato destro sfruttando il blocco e va in angolo destro. Nello stesso momento il 5 attraversa sotto canestro, lungo il fondo, verso il lato sinistro.",
     scr:"Il 4 resta fermo finché il 1 non è passato: il 1 gli passa vicinissimo, spalla a spalla.",
-    def:"<b>X1</b> resta fermato sul blocco e insegue. <b>X5</b> segue il 5 sotto canestro restando tra uomo e canestro.",
+    def:"<b>X1</b> resta fermato sul blocco e insegue. <b>X4</b> fa un passo in aiuto, poi recupera. <b>X5</b> segue il 5 sotto canestro.",
     O:[angDx,alaDx,alaSx,SPA,postSx], ball:1, via:{0:[[228,320],[318,316],[356,214],[404,124]],4:[[300,28],[200,28]]},
-    screenOn:[{by:3,for:0,at:SPA}], roles:{0:"bloccato"}, dOv:{0:[262,306],3:[338,236]} },
-  { t:"4 si apre in punta, 5 al centro",
+    screenOn:[{by:3,for:0,at:SPA}], roles:{0:"bloccato"}, dOv:{0:[262,306]} },
+  { t:"4 in punta, 5 al centro",
+    s:"Il 4 si apre in punta. Il 5 prende il centro dell'area.",
     atk:"Dopo il blocco il 4 si apre in punta. Il 5 risale subito e prende posizione al centro dell'area, spalle a canestro.",
-    def:"<b>X5</b> deve stare davanti o di fianco al 5 (lato palla) per togliergli il passaggio. <b>X4</b> segue il 4 in punta.",
+    def:"<b>X5</b> sta davanti o di fianco al 5 (lato palla) per togliergli il passaggio. <b>X4</b> segue il 4 in punta.",
     O:[angDx,alaDx,alaSx,punta,c5], ball:1, via:{4:[[190,96]]} },
   { t:"Lettura del 2",
+    s:"Il 2 guarda il 5: se è libero, passaggio diretto.",
     atk:"Il 2 ha due scelte: passare subito al 5 se è libero, oppure passare al 4 in punta che serve il 5 dall'alto.",
     def:"Se <b>X5</b> marca il 5 dal lato della palla, il passaggio diretto è chiuso ma si apre quello dall'alto, dal 4.",
     O:[angDx,alaDx,alaSx,punta,c5], ball:1, opt:[[1,4],[1,3]],
-    branch:{ label:"Opzione: passaggio alto dal 4", phases:[
+    branch:{ label:"Passaggio alto dal 4", phases:[
       { t:"2 passa a 4",
+        s:"Diretto chiuso: il 2 passa al 4 in punta.",
         atk:"Il passaggio diretto al 5 è chiuso: il 2 passa al 4 in punta.",
         def:"<b>X5</b> è rimasto sul lato della palla e ora è dietro al 5: il 5 lo sigilla col corpo.",
         O:[angDx,alaDx,alaSx,punta,c5], ball:3, pass:[1,3], dOv:{4:[296,96]} },
       { t:"Passaggio alto al 5",
+        s:"Il 4 serve il 5 sopra la difesa: appoggio a canestro.",
         atk:"Il 4 serve subito il 5 con un passaggio alto, sopra la difesa. Il 5 riceve e appoggia a canestro.",
         def:"<b>X5</b> è fuori posizione: la difesa ha perso.",
-        O:[angDx,alaDx,alaSx,punta,[250,96]], ball:4, pass:[3,4], dOv:{4:[296,90]}, finish:"CANESTRO" }
+        O:[angDx,alaDx,alaSx,punta,[250,96]], ball:4, pass:[3,4], dOv:{4:[296,90]}, finish:"Canestro" }
     ]}},
   { t:"2 passa a 5: canestro",
+    s:"Passaggio diretto al 5 in area: si gira e segna.",
     atk:"Il 2 passa direttamente al 5 al centro dell'area. Il 5 riceve, si gira e segna.",
-    def:"<b>X5</b> era dietro al 5: con un passaggio veloce non riesce a recuperare.",
-    O:[angDx,alaDx,alaSx,punta,[250,96]], ball:4, pass:[1,4], finish:"CANESTRO" },
+    def:"Il passaggio è veloce: <b>X5</b> non riesce a chiudere la linea e il 5 riceve.",
+    O:[angDx,alaDx,alaSx,punta,[250,96]], ball:4, pass:[1,4], finish:"Canestro" },
  ]};})();
 
 /* ===================== NUOVO ===================== */
 const NUOVO = (()=>{ const SPA=[292,290], X1s=[262,306], ala3=[70,196], SPB=[126,164], X3s=[104,186], SPC=[150,112], X5s=[170,86];
-return { id:"nuovo", name:"Nuovo", eyebrow:"Schema d'attacco · difesa a uomo · tre blocchi del 4",
- intro:"Partenza come il 2, ma il 5 sta sul lato opposto al primo passaggio. Il 4 porta tre blocchi di fila: per il 1, per il 3 e per il 5, che entra dietro al 3 e riceve dal 2.",
+return { id:"nuovo", name:"Nuovo",
  phases:[
   { t:"Allineamento",
+    s:"1 in punta, 2 e 3 sulle ali, 4 in lunetta, 5 post sinistro.",
     atk:"1 in punta con palla, 2 in ala destra, 3 in ala sinistra all'altezza della lunetta, 4 dentro l'area vicino alla lunetta, 5 in post basso sinistro. Regola: il 5 deve trovarsi sul lato opposto al primo passaggio; se c'è già, resta lì.",
-    def:"<b>X1</b> sulla palla. <b>X2</b> e <b>X3</b> in anticipo sulle ali. <b>X4</b> e <b>X5</b> tra il loro uomo e il canestro.",
-    O:[punta,alaDx,ala3,lunetta,postSx], ball:0, dOv:{3:[250,136]} },
+    def:"<b>X1</b> sulla palla. <b>X2</b>, <b>X3</b> e <b>X4</b> in anticipo. <b>X5</b> a due passaggi, in aiuto.",
+    O:[punta,alaDx,ala3,lunetta,postSx], ball:0 },
   { t:"1 passa a 2",
+    s:"Il 1 passa al 2 in ala destra. Il 5 resta dall'altra parte.",
     atk:"Il playmaker passa al 2 in ala destra. Il 5 è già sul lato opposto e resta lì.",
     def:"La difesa salta verso la palla: <b>X2</b> sulla palla, <b>X1</b> in anticipo, <b>X3</b> e <b>X5</b> in aiuto sul lato debole.",
-    O:[punta,alaDx,ala3,lunetta,postSx], ball:1, pass:[0,1], dOv:{0:X1s,2:X3s,4:X5s} },
+    O:[punta,alaDx,ala3,lunetta,postSx], ball:1, pass:[0,1] },
   { t:"Primo blocco: 4 per 1",
+    s:"Il 4 esce dall'area e blocca il difensore del 1.",
     atk:"Il 4 esce dall'area e blocca il difensore del 1, dalla parte della palla.",
     scr:"<b>4</b> si ferma attaccato a <b>X1</b>, sul suo fianco destro (lato palla). Piedi larghi, fermo.",
     def:"<b>X1</b> deve sentire il blocco: <b>X4</b> avvisa a voce «blocco!».",
-    O:[punta,alaDx,ala3,SPA,postSx], ball:1, mv:{3:"screen"}, screen:[{by:3,for:0,at:SPA}], dOv:{0:X1s,2:X3s,4:X5s,3:[338,236]} },
+    O:[punta,alaDx,ala3,SPA,postSx], ball:1, mv:{3:"screen"}, screen:[{by:3,for:0,at:SPA}], dOv:{0:X1s} },
   { t:"1 taglia in angolo destro",
+    s:"Il 1 finta al centro, poi usa il blocco e va in angolo.",
     atk:"Il 1 finta verso il centro, poi taglia sul lato destro sfruttando il blocco e va in angolo destro.",
     scr:"Il 4 resta fermo finché il 1 non è passato.",
-    def:"<b>X1</b> resta fermato sul blocco e insegue il 1 in angolo.",
+    def:"<b>X1</b> resta fermato sul blocco e insegue il 1 in angolo. <b>X4</b> fa un passo in aiuto, poi recupera.",
     O:[angDx,alaDx,ala3,SPA,postSx], ball:1, via:{0:[[228,320],[318,316],[356,214],[404,124]]},
-    screenOn:[{by:3,for:0,at:SPA}], roles:{0:"bloccato"}, dOv:{0:X1s,2:X3s,4:X5s,3:[338,236]} },
+    screenOn:[{by:3,for:0,at:SPA}], roles:{0:"bloccato"}, dOv:{0:X1s} },
   { t:"Secondo blocco: 4 per 3",
+    s:"Il 4 attraversa e blocca il difensore del 3, a sinistra.",
     atk:"Il 4 non va in punta: attraversa veloce e porta un secondo blocco sul difensore del 3, all'altezza della lunetta sul lato sinistro.",
     scr:"<b>4</b> si ferma attaccato a <b>X3</b>, dalla parte del canestro. Fermo, piedi larghi. Il 3 aspetta che il blocco sia piazzato.",
     def:"<b>X3</b> è in aiuto e guarda la palla. <b>X4</b> segue il 4 e avvisa.",
-    O:[angDx,alaDx,ala3,SPB,postSx], ball:1, via:{3:[[220,240]]}, mv:{3:"screen"}, screen:[{by:3,for:2,at:SPB}], dOv:{2:X3s,4:X5s} },
+    O:[angDx,alaDx,ala3,SPB,postSx], ball:1, via:{3:[[220,240]]}, mv:{3:"screen"}, screen:[{by:3,for:2,at:SPB}], dOv:{2:X3s} },
   { t:"3 taglia in area",
+    s:"Il 3 gira sopra il blocco e taglia dentro l'area.",
     atk:"Il 3 gira sopra il blocco e taglia dentro l'area: il 2 cerca il passaggio.",
     scr:"Il 4 resta fermo finché il 3 non è passato, poi si gira subito verso il 5.",
-    def:"<b>X3</b> resta fermato sul blocco e insegue.",
+    def:"<b>X3</b> resta fermato sul blocco e insegue. <b>X4</b> fa un passo in aiuto, poi recupera.",
     O:[angDx,alaDx,[232,138],SPB,postSx], ball:1, via:{2:[[112,214],[152,186],[190,150]]}, opt:[[1,2]],
-    screenOn:[{by:3,for:2,at:SPB}], roles:{2:"bloccato"}, dOv:{2:X3s,4:X5s} },
-  { t:"Terzo blocco: 4 per 5, 3 esce",
+    screenOn:[{by:3,for:2,at:SPB}], roles:{2:"bloccato"}, dOv:{2:X3s} },
+  { t:"Terzo blocco: 4 per 5",
+    s:"Il 3 esce in punta. Il 4 scende e blocca il difensore del 5.",
     atk:"Il 3 non riceve e se ne va dove c'è spazio: esce in punta. Intanto il 4 scende e porta il terzo blocco sul difensore del 5.",
     scr:"<b>4</b> si ferma attaccato a <b>X5</b>, dalla parte alta (verso la lunetta). Il 5 aspetta fermo in post basso.",
-    def:"<b>X5</b> marca il 5 dal lato della palla. <b>X3</b> segue il 3 in punta.",
+    def:"<b>X5</b> è vicino al 5 e guarda la palla. <b>X3</b> segue il 3 in punta.",
     O:[angDx,alaDx,punta,SPC,postSx], ball:1, via:{2:[[244,230]]}, mv:{3:"screen"}, screen:[{by:3,for:4,at:SPC}], dOv:{4:X5s} },
-  { t:"5 fa il ricciolo dietro al 3",
+  { t:"5 fa il ricciolo",
+    s:"Il 5 gira stretto sul blocco ed entra in area dietro al 3.",
     atk:"Il 5 sale, gira stretto intorno al blocco (ricciolo) ed entra in area sulla stessa strada del 3, fa il «trenino». Il 2 lo cerca.",
     scr:"Il 4 resta fermo finché il 5 non è passato.",
     def:"<b>X5</b> resta fermato sul blocco: il 5 entra libero in area.",
     O:[angDx,alaDx,punta,SPC,[270,100]], ball:1, via:{4:[[120,92],[118,142],[166,152],[220,128]]}, opt:[[1,4]],
     screenOn:[{by:3,for:4,at:SPC}], roles:{4:"bloccato"}, dOv:{4:X5s} },
   { t:"2 passa a 5: canestro",
+    s:"Il 2 serve il 5 in area: canestro. Il 4 si apre in ala.",
     atk:"Il 2 passa al 5 in area: canestro. Il 4, dopo il blocco, si apre in ala sinistra per non intasare l'area.",
     def:"<b>X5</b> è rimasto sul blocco: nessuno può aiutare in tempo.",
-    O:[angDx,alaDx,punta,alaSx,[262,86]], ball:4, pass:[1,4], finish:"CANESTRO" },
+    O:[angDx,alaDx,punta,alaSx,[262,86]], ball:4, pass:[1,4], finish:"Canestro" },
  ]};})();
 
 /* ===================== FONDO ===================== */
 const FONDO = (()=>{ const inb=[318,-22], gomDx=[336,190], gomSx=[164,190], SPA=[308,136], X4s=[328,164], CANf=[262,84], SPB=[338,104], X2s=[306,110], tiro=[408,124];
-return { id:"fondo", name:"Fondo", eyebrow:"Rimessa dal fondo · difesa a uomo",
- intro:"Due lunghi sul lato della palla, il tiratore dall'altra parte. Prima opzione il taglio del 4 a canestro, seconda il tiro dalla media del 2, il 3 sempre come sicurezza.",
+return { id:"fondo", name:"Fondo",
  phases:[
   { t:"Allineamento",
+    s:"1 rimette dal fondo. 4 e 5 lato palla, 3 gomito, 2 post.",
     atk:"1 rimette dal fondo, a destra del canestro. I due lunghi sul lato della palla: 5 in post basso destro, 4 al gomito destro. 3 al gomito sinistro. 2, il tiratore, in post basso sinistro.",
-    def:"<b>X1</b> davanti a chi rimette, braccia alte. Gli altri tra il loro uomo e il canestro, girati per vedere palla e uomo.",
-    O:[inb,postSx,gomSx,gomDx,postDx], ball:0, dOv:{3:X4s} },
+    def:"<b>X1</b> davanti a chi rimette, braccia alte. <b>X4</b> e <b>X5</b> in anticipo sul lato della palla. <b>X2</b> e <b>X3</b> in aiuto sul lato debole.",
+    O:[inb,postSx,gomSx,gomDx,postDx], ball:0 },
   { t:"2 blocca per 4",
+    s:"Il 2 attraversa l'area e blocca il difensore del 4.",
     atk:"Il 2 attraversa l'area e va a bloccare il difensore del 4. Il 4 aspetta fermo che arrivi.",
     scr:"<b>2</b> si ferma attaccato a <b>X4</b>, dalla parte del canestro (sotto di lui). Piedi larghi, fermo.",
     def:"<b>X4</b> guarda la palla: deve sentire il blocco. <b>X2</b> segue il 2 attraverso l'area.",
     O:[inb,SPA,gomSx,gomDx,postDx], ball:0, mv:{1:"screen"}, screen:[{by:1,for:3,at:SPA}], dOv:{3:X4s} },
-  { t:"4 taglia forte a canestro",
+  { t:"4 taglia a canestro",
+    s:"Il 4 taglia forte a canestro sfiorando il bloccante.",
     atk:"Il 4 taglia forte a canestro sfiorando il bloccante. Prima opzione: 1 passa al 4 per un canestro facile.",
     scr:"Il 2 resta fermo finché il 4 non è passato.",
-    def:"<b>X4</b> resta fermato sul blocco. Se un difensore capisce e si mette in mezzo, la prima opzione non c'è.",
+    def:"<b>X4</b> resta fermato sul blocco. <b>X2</b> fa un passo in aiuto, poi recupera. Se un difensore capisce e si mette in mezzo, la prima opzione non c'è.",
     O:[inb,SPA,gomSx,CANf,postDx], ball:0, via:{3:[[292,172]]}, opt:[[0,3]],
-    screenOn:[{by:1,for:3,at:SPA}], roles:{3:"bloccato"}, dOv:{3:X4s} },
-  { t:"4 esce, 5 blocca per 2, 3 si apre",
-    atk:"La prima opzione non c'è: il 4 esce nell'angolo sinistro. Il 5 sale e blocca il difensore del 2. Il 3 si apre verso la punta come sicurezza.",
-    scr:"<b>5</b> si ferma attaccato a <b>X2</b>, sul suo fianco destro: deve «placcarlo» senza muoversi. Il 2 aspetta che il blocco sia piazzato.",
-    def:"<b>X2</b> è vicino al 2 e guarda la palla. <b>X4</b> segue il 4 in angolo.",
-    O:[inb,SPA,[300,300],angSx,SPB], ball:0, via:{3:[[200,40]]}, mv:{4:"screen"}, screen:[{by:4,for:1,at:SPB}], dOv:{1:X2s,4:[352,70]} },
-  { t:"2 esce dal blocco: tiro",
-    atk:"Il 2 esce sul lato destro sfruttando il blocco del 5 e riceve da 1 per un tiro dalla media. Se è chiuso, 1 passa al 3, che è la sicurezza.",
-    scr:"Il 5 resta fermo finché il 2 non è passato.",
-    def:"<b>X2</b> resta fermato sul blocco: il 2 tira libero.",
-    O:[inb,tiro,[300,300],angSx,SPB], ball:1, via:{1:[[350,150]]}, pass:[0,1],
-    screenOn:[{by:4,for:1,at:SPB}], roles:{1:"bloccato"}, dOv:{1:X2s,4:[352,70]}, opt:[[0,2]], finish:"TIRO" },
+    screenOn:[{by:1,for:3,at:SPA}], roles:{3:"bloccato"}, dOv:{3:X4s},
+    branch:{ label:"Se il taglio è chiuso", phases:[
+      { t:"4 esce, 5 blocca per 2",
+        s:"Il 4 va in angolo, il 5 blocca per il 2, il 3 si apre.",
+        atk:"La prima opzione non c'è: il 4 esce nell'angolo sinistro. Il 5 sale e blocca il difensore del 2. Il 3 si apre verso la punta come sicurezza.",
+        scr:"<b>5</b> si ferma attaccato a <b>X2</b>, sul suo fianco destro: deve «placcarlo» senza muoversi. Il 2 aspetta che il blocco sia piazzato.",
+        def:"<b>X2</b> è vicino al 2 e guarda la palla. <b>X4</b> segue il 4 in angolo.",
+        O:[inb,SPA,[300,300],angSx,SPB], ball:0, via:{3:[[200,40]]}, mv:{4:"screen"}, screen:[{by:4,for:1,at:SPB}], dOv:{1:X2s} },
+      { t:"2 esce: tiro dalla media",
+        s:"Il 2 esce a destra, riceve dal 1 e tira. Il 3 è la sicurezza.",
+        atk:"Il 2 esce sul lato destro sfruttando il blocco del 5 e riceve da 1 per un tiro dalla media. Se è chiuso, 1 passa al 3, che è la sicurezza.",
+        scr:"Il 5 resta fermo finché il 2 non è passato.",
+        def:"<b>X2</b> resta fermato sul blocco: il 2 tira libero.",
+        O:[inb,tiro,[300,300],angSx,SPB], ball:1, via:{1:[[350,150]]}, pass:[0,1],
+        screenOn:[{by:4,for:1,at:SPB}], roles:{1:"bloccato"}, dOv:{1:X2s}, opt:[[0,2]], finish:"Tiro" }
+    ]}},
+  { t:"1 passa a 4: canestro",
+    s:"Il 1 serve il 4 sotto canestro: appoggio facile.",
+    atk:"Il taglio è libero: 1 passa al 4 sotto canestro per un appoggio facile.",
+    def:"<b>X4</b> è rimasto sul blocco e non recupera in tempo.",
+    O:[inb,SPA,gomSx,CANf,postDx], ball:3, pass:[0,3], dOv:{3:X4s}, roles:{3:"bloccato"}, finish:"Canestro" },
  ]};})();
 
 /* ===================== LATERALE ===================== */
 const LATERALE = (()=>{ const inb=[516,262], a5=[410,290], c2=[440,72], a4=[110,300], c3=[40,64],
   X2s=[446,102], SP2=[452,134], X3s=[64,96], SP3=[80,126], r2=[404,268], r3=[92,236], in1=[488,262], X1s=[470,240], SP1=[444,218], CANl=[292,92];
-return { id:"laterale", name:"Laterale", eyebrow:"Rimessa laterale · difesa a uomo",
- intro:"Due blocchi dall'alto verso il basso liberano il 2 per ricevere e il 3 per il ribaltamento. Poi il 5 blocca chi ha rimesso, che taglia davanti e riceve dal 3 a canestro.",
+return { id:"laterale", name:"Laterale",
  phases:[
   { t:"Allineamento",
+    s:"1 rimette da destra. 5 vicino a lui, 2 e 3 negli angoli.",
     atk:"1 rimette dalla linea laterale destra, all'altezza dell'arco. 5 in ala destra alta, vicino a chi rimette. 2 in angolo destro. 4 in ala sinistra alta. 3 in angolo sinistro.",
-    def:"<b>X1</b> davanti a chi rimette, braccia alte. <b>X2</b> e <b>X5</b> in anticipo. <b>X3</b> e <b>X4</b> sul lato debole.",
-    O:[inb,c2,c3,a4,a5], ball:0, dOv:{1:X2s,2:X3s} },
+    def:"<b>X1</b> davanti a chi rimette, braccia alte. <b>X2</b> e <b>X5</b> in anticipo. <b>X3</b> e <b>X4</b> sul lato debole, in aiuto.",
+    O:[inb,c2,c3,a4,a5], ball:0 },
   { t:"Doppio blocco",
+    s:"Il 5 blocca il difensore del 2, il 4 quello del 3.",
     atk:"Il 5 finge di andare a prendere la rimessa, ma va a bloccare il difensore del 2. Nello stesso momento il 4 blocca il difensore del 3.",
     scr:"<b>5</b> si ferma attaccato a <b>X2</b> dalla parte alta (verso metà campo). <b>4</b> fa lo stesso con <b>X3</b>. Fermi, piedi larghi. 2 e 3 aspettano che i blocchi siano piazzati.",
     def:"<b>X2</b> e <b>X3</b> devono sentire il blocco: i compagni avvisano a voce.",
     O:[inb,c2,c3,SP3,SP2], ball:0, mv:{4:"screen",3:"screen"}, screen:[{by:4,for:1,at:SP2},{by:3,for:2,at:SP3}], dOv:{1:X2s,2:X3s} },
-  { t:"2 e 3 salgono, 1 passa a 2",
+  { t:"2 riceve, 3 sale",
+    s:"Il 2 e il 3 salgono sui blocchi. Il 1 rimette al 2.",
     atk:"Il 2 sale sfruttando il blocco del 5 e riceve la rimessa. Il 3 sale in ala sinistra sfruttando il blocco del 4.",
     scr:"I bloccanti restano fermi finché 2 e 3 non sono passati.",
-    def:"<b>X2</b> e <b>X3</b> restano fermati sui blocchi e inseguono.",
+    def:"<b>X2</b> e <b>X3</b> restano fermati sui blocchi e inseguono. <b>X4</b> e <b>X5</b> fanno un passo in aiuto, poi recuperano.",
     O:[inb,r2,r3,SP3,SP2], ball:1, via:{1:[[410,140],[404,220]],2:[[38,160]]}, pass:[0,1],
     screenOn:[{by:4,for:1,at:SP2},{by:3,for:2,at:SP3}], roles:{1:"bloccato",2:"bloccato"}, dOv:{1:X2s,2:X3s} },
-  { t:"4 in angolo sinistro, 1 entra",
+  { t:"4 in angolo, 1 entra",
+    s:"Il 4 si apre in angolo sinistro. Il 1 entra in campo.",
     atk:"Il 4, dopo il blocco, si apre nell'angolo sinistro per fare spazio. Il 1 entra in campo.",
     def:"<b>X2</b> recupera sulla palla. <b>X4</b> segue il 4 in angolo.",
-    O:[in1,r2,r3,angSx,SP2], ball:1, dOv:{0:X1s} },
-  { t:"2 si gira e passa a 3",
+    O:[in1,r2,r3,angSx,SP2], ball:1 },
+  { t:"2 ribalta a 3",
+    s:"Il 2 si gira e passa al 3 in ala sinistra.",
     atk:"Il 2 si gira e ribalta la palla al 3 in ala sinistra.",
     def:"Tutta la difesa si sposta verso il lato sinistro, dove ora c'è la palla.",
-    O:[in1,r2,r3,angSx,SP2], ball:2, pass:[1,2], dOv:{0:X1s} },
+    O:[in1,r2,r3,angSx,SP2], ball:2, pass:[1,2] },
   { t:"5 blocca per 1",
+    s:"Il 5 va a bloccare il difensore del 1.",
     atk:"Il 5 va a bloccare il difensore del 1, che ha appena rimesso.",
     scr:"<b>5</b> si ferma attaccato a <b>X1</b>, dalla parte del canestro. Fermo, piedi larghi.",
     def:"<b>X1</b> è in aiuto e guarda la palla dall'altra parte: non vede arrivare il blocco.",
     O:[in1,r2,r3,angSx,SP1], ball:2, mv:{4:"screen"}, screen:[{by:4,for:0,at:SP1}], dOv:{0:X1s} },
-  { t:"1 taglia davanti a canestro",
+  { t:"1 taglia a canestro",
+    s:"Il 1 taglia forte davanti al blocco, verso canestro.",
     atk:"Il 1 taglia davanti, forte, verso canestro. Il 3 lo cerca.",
     scr:"Il 5 resta fermo finché il 1 non è passato.",
-    def:"<b>X1</b> resta fermato sul blocco e insegue.",
+    def:"<b>X1</b> resta fermato sul blocco e insegue. <b>X5</b> fa un passo in aiuto, poi recupera.",
     O:[CANl,r2,r3,angSx,SP1], ball:2, via:{0:[[470,212],[420,170]]}, opt:[[2,0]],
     screenOn:[{by:4,for:0,at:SP1}], roles:{0:"bloccato"}, dOv:{0:X1s} },
-  { t:"3 passa a 1: canestro e fallo",
+  { t:"3 passa a 1: canestro",
+    s:"Il 3 serve il 1 lanciato a canestro: canestro e fallo.",
     atk:"Il 3 passa al 1 che arriva forte a canestro: canestro e fallo.",
     def:"<b>X1</b> arriva tardi e può solo fare fallo.",
-    O:[[270,70],r2,r3,angSx,SP1], ball:0, pass:[2,0], finish:"CANESTRO E FALLO" },
+    O:[[270,70],r2,r3,angSx,SP1], ball:0, pass:[2,0], finish:"Canestro e fallo" },
  ]};})();
 
 const PLAYS={pugno:PUGNO,"2":DUE,nuovo:NUOVO,fondo:FONDO,laterale:LATERALE};
 
-const S = 500/15, BX = 250, BY = 1.575*S, BK=[BX,BY];
-const FONT='Saira Condensed,Arial Narrow,sans-serif';
-
-/* Difesa a uomo: sulla palla / anticipo (a un passaggio) / aiuto (lato debole) */
+/* =====================================================================
+   GEOMETRIA E DIFESA A UOMO
+   ===================================================================== */
+const S=500/15, BX=250, BY=1.575*S, BK=[BX,BY];       // 1 m = 33,3 unità; canestro a 1,575 m dal fondo
+const R_ATK=18, R_DEF=16, R_BALL=11.5, MIN_GAP=30;
+const FONT="Saira Condensed,Arial Narrow,sans-serif";
 const sub=(a,b)=>[a[0]-b[0],a[1]-b[1]], add=(a,b)=>[a[0]+b[0],a[1]+b[1]], mul=(a,s)=>[a[0]*s,a[1]*s];
-const len=a=>Math.hypot(a[0],a[1])||1, unit=a=>mul(a,1/len(a));
-const outB=p=>p[1]<0||p[0]>500||p[0]<0;
-function autoRole(O,ball,i){ if(i===ball) return "palla"; return len(sub(O[ball],O[i]))<250 ? "anticipo" : "aiuto"; }
-function autoPos(O,ball,i,role){
-  const M=O[i], B=O[ball];
-  if(role==="palla"){ if(outB(M)) return add(M, mul(unit(sub(BK,M)),40)); return add(M, mul(unit(sub(BK,M)),30)); }
-  if(role==="anticipo") return add(add(M, mul(sub(B,M),0.17)), mul(unit(sub(BK,M)),12));
-  return add(add(M, mul(sub(B,M),0.26)), mul(sub(BK,M),0.2));
+const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+const unit=a=>{const l=Math.hypot(a[0],a[1]); return l>1e-6?[a[0]/l,a[1]/l]:[0,1]};
+const clampN=(v,a,b)=>Math.max(a,Math.min(b,v));
+const isOut=p=>p[1]<0||p[0]>500||p[0]<0;
+
+/* Ruolo del difensore: palla / anticipo (a un passaggio) / aiuto (a due passaggi, lato debole) */
+function autoRole(O,b,i){
+  if(i===b) return "palla";
+  const M=O[i], B=O[b];
+  const opposite=(M[0]-BX)*(B[0]-BX)<0 && Math.abs(M[0]-BX)>60 && Math.abs(B[0]-BX)>60;
+  return (dist(M,B)<260 && !opposite) ? "anticipo" : "aiuto";
+}
+function idealPos(O,b,i,role){
+  const M=O[i], B=O[b];
+  if(role==="palla"){                       // ~1 m dal suo uomo, sulla linea uomo-canestro
+    if(isOut(M)) return add(M,mul(unit(sub(BK,M)),40)); // rimessa: davanti, dentro il campo
+    return add(M,mul(unit(sub(BK,M)),36));
+  }
+  if(role==="anticipo"){                    // mano e piede sulla linea di passaggio, un po' verso canestro
+    const d=unit(add(mul(unit(sub(B,M)),0.8),mul(unit(sub(BK,M)),0.4)));
+    return add(M,mul(d,36));
+  }
+  // aiuto: sulla linea centrale dell'area, a triangolo tra uomo e palla
+  return [BX+(M[0]-BX)*0.12, clampN(M[1]+(B[1]-M[1])*0.25,40,190)];
+}
+/* Separazione: nessuna coppia sotto la distanza minima; il contatto del blocco può scendere fino a 31 */
+function resolve(O,D,contact){
+  const ex=(a,d)=>contact.some(c=>c[0]===a&&c[1]===d);
+  for(let it=0;it<120;it++){
+    let moved=false;
+    for(let i=0;i<5;i++){
+      for(let j=0;j<5;j++){
+        const need=ex(j,i)?31:(j===i?35:37), v=sub(D[i],O[j]), d=Math.hypot(v[0],v[1]);
+        if(d<need-0.01){ const u=d>0.01?mul(v,1/d):unit(sub(BK,O[j])); D[i]=add(O[j],mul(u,need)); moved=true; }
+      }
+      for(let j=i+1;j<5;j++){
+        const v=sub(D[i],D[j]), d=Math.hypot(v[0],v[1]);
+        if(d<34-0.01){ const u=d>0.01?mul(v,1/d):[1,0], p=(34-d)/2; D[i]=add(D[i],mul(u,p)); D[j]=sub(D[j],mul(u,p)); moved=true; }
+      }
+      D[i]=[clampN(D[i][0],10,490),clampN(D[i][1],6,366)];
+    }
+    if(!moved) break;
+  }
+  return D;
 }
 function prep(ph){
-  ph.R = ph.O.map((_,i)=>(ph.roles||{})[i] || autoRole(ph.O,ph.ball,i));
-  ph.D = ph.O.map((_,i)=> (ph.dOv||{})[i] || autoPos(ph.O,ph.ball,i,ph.R[i]==="bloccato"?"anticipo":ph.R[i]));
+  const scr=ph.screen||[], son=ph.screenOn||[];
+  ph.R=ph.O.map((_,i)=>(ph.roles||{})[i]||autoRole(ph.O,ph.ball,i));
+  ph.contact=[...scr,...son].map(s=>[s.by,s.for]);
+  const D=ph.O.map((_,i)=>{
+    if(ph.dOv&&ph.dOv[i]) return ph.dOv[i].slice();
+    return idealPos(ph.O,ph.ball,i,ph.R[i]==="bloccato"?"anticipo":ph.R[i]);
+  });
+  son.forEach(s=>{                          // il difensore del bloccante fa un passo in aiuto sul taglio
+    if(ph.dOv&&ph.dOv[s.by]) return;
+    const sc=ph.O[s.by], ce=ph.O[s.for];
+    D[s.by]=add(sc,mul(unit(add(unit(sub(ce,sc)),unit(sub(BK,sc)))),34));
+    ph.R[s.by]="aiuto";
+  });
+  [...scr,...son].forEach(s=>{               // contatto del blocco: difensore appoggiato al bloccante, senza sovrapporsi
+    const at=ph.O[s.by]; D[s.for]=add(at,mul(unit(sub(D[s.for],at)),35));
+  });
+  ph.D=resolve(ph.O,D,ph.contact);
 }
 Object.values(PLAYS).forEach(pl=>pl.phases.forEach(p=>{prep(p); if(p.branch) p.branch.phases.forEach(prep)}));
 
-const $ = id => document.getElementById(id);
-let PLAY=PUGNO, P=PUGNO.phases, seq=P, inBranch=false, mainK=0;
-let k = 0, t = 1, playing = false, raf = 0, last = 0, hold = 0;
+/* Verifica distanze: restituisce l'elenco delle violazioni (vuoto = tutto a posto) */
+function allSequences(){
+  const out=[];
+  Object.values(PLAYS).forEach(pl=>{
+    out.push({play:pl.id,name:"principale",seq:pl.phases});
+    pl.phases.forEach((p,i)=>{ if(p.branch) out.push({play:pl.id,name:"opzione da fase "+(i+1),seq:[p,...p.branch.phases],from:1}); });
+  });
+  return out;
+}
+function checkSpacing(min=MIN_GAP){
+  const bad=[];
+  allSequences().forEach(sq=>sq.seq.forEach((ph,k)=>{
+    if(sq.from&&k<sq.from) return;
+    const P=[...ph.O.map((p,i)=>({p,n:String(i+1),a:i,t:"A"})),...ph.D.map((p,i)=>({p,n:"X"+(i+1),a:i,t:"D"}))];
+    for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){
+      const a=P[i],b=P[j];
+      const d=dist(a.p,b.p);
+      if(d<min) bad.push(`${sq.play} · ${sq.name} · fase ${k+1}: ${a.n}–${b.n} = ${d.toFixed(1)}`);
+    }
+    // raddoppio: un altro difensore troppo vicino a un attaccante
+    ph.O.forEach((o,j)=>ph.D.forEach((d,i)=>{
+      if(i===j||ph.contact.some(c=>c[0]===j&&c[1]===i)) return;
+      if(dist(o,d)<34) bad.push(`${sq.play} · ${sq.name} · fase ${k+1}: X${i+1} raddoppia il ${j+1}`);
+    }));
+  }));
+  return bad;
+}
 
+/* =====================================================================
+   DISEGNO
+   ===================================================================== */
+const $=id=>document.getElementById(id);
 function drawFloor(){
-  const r3 = 6.75*S, cx = 0.9*S, dy = Math.sqrt(r3*r3 - (BX-cx)**2);
-  const L = 'stroke="var(--line)" stroke-width="3" fill="none"';
-  $("floor").innerHTML = `
+  const r3=6.75*S, cx=0.9*S, dy=Math.sqrt(r3*r3-(BX-cx)**2);
+  const L='stroke="var(--line)" stroke-width="3" fill="none"';
+  $("floor").innerHTML=`
+    <rect x="-10" y="-48" width="556" height="424" fill="#141311"/>
     <rect x="0" y="0" width="500" height="470" fill="var(--floor)"/>
     <path d="M${cx},0 V${BY+dy} A${r3},${r3} 0 0 0 ${500-cx},${BY+dy} V0 Z" fill="var(--floor2)"/>
     <rect x="${BX-2.45*S}" y="0" width="${4.9*S}" height="${5.8*S}" fill="var(--paint)"/>
@@ -482,150 +621,250 @@ function drawFloor(){
     <rect x="${BX-2.45*S}" y="0" width="${4.9*S}" height="${5.8*S}" ${L}/>
     <circle cx="${BX}" cy="${5.8*S}" r="${1.8*S}" ${L}/>
     <path d="M${BX-1.25*S},${BY} A${1.25*S},${1.25*S} 0 0 0 ${BX+1.25*S},${BY}" ${L}/>
-    <path d="M${BX-1.8*S},470 A${1.8*S},${1.8*S} 0 0 1 ${BX+1.8*S},470" ${L}/>
     <line x1="${BX-0.9*S}" y1="${1.2*S}" x2="${BX+0.9*S}" y2="${1.2*S}" stroke="var(--fg)" stroke-width="4"/>
     <circle cx="${BX}" cy="${BY}" r="7.5" fill="none" stroke="var(--ball)" stroke-width="3"/>`;
 }
-
-const ease = x => x<.5 ? 2*x*x : 1-Math.pow(-2*x+2,2)/2;
-const lerp = (a,b,u) => [a[0]+(b[0]-a[0])*u, a[1]+(b[1]-a[1])*u];
+const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+const lerp=(a,b,u)=>[a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u];
 function along(pts,u){
   const seg=[]; let tot=0;
-  for(let i=1;i<pts.length;i++){const l=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]); seg.push(l); tot+=l}
+  for(let i=1;i<pts.length;i++){const l=dist(pts[i],pts[i-1]); seg.push(l); tot+=l}
   if(tot===0) return pts[pts.length-1];
   let d=u*tot;
   for(let i=0;i<seg.length;i++){ if(d<=seg[i]||i===seg.length-1) return lerp(pts[i],pts[i+1],seg[i]?Math.min(1,d/seg[i]):1); d-=seg[i] }
 }
-const path = (ph, prev, i) => [prev.O[i], ...((ph.via||{})[i]||[]), ph.O[i]];
-const moved = (a,b) => Math.hypot(a[0]-b[0],a[1]-b[1])>6;
-function shorten(a,b,d){const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return [b[0]-dx/l*d,b[1]-dy/l*d]}
-const txt=(x,y,s,size,fill,anchor="middle")=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${FONT}" font-weight="800" font-size="${size}" fill="${fill}" stroke="var(--bg)" stroke-width="4" paint-order="stroke" stroke-linejoin="round">${s}</text>`;
-function prevOf(){ return seq[Math.max(0,k-1)]; }
+const pathOf=(ph,prev,i)=>[prev.O[i],...((ph.via||{})[i]||[]),ph.O[i]];
+const moved=(a,b)=>dist(a,b)>6;
+function shorten(a,b,d){const l=dist(a,b)||1; return [b[0]-(b[0]-a[0])/l*d,b[1]-(b[1]-a[1])/l*d]}
+const pts2=p=>p.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join(" ");
+const txt=(x,y,s,size,fill)=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="${size}" fill="${fill}" stroke="var(--bg)" stroke-width="5" paint-order="stroke" stroke-linejoin="round">${s}</text>`;
+/* palla attaccata al portatore sul lato esterno (lontano dal canestro); in rimessa verso il campo */
+function ballSpot(p,others){
+  const off=R_ATK+R_BALL-4;
+  if(!isOut(p)) return add(p,mul(unit(sub(p,BK)),off));
+  // rimessa: palla di lato (perpendicolare alla direzione del canestro), dal lato più libero e dentro il disegno
+  const d=unit(sub(BK,p)), c=[add(p,mul([-d[1],d[0]],off)),add(p,mul([d[1],-d[0]],off))];
+  const score=q=>{ const inV=q[0]>2&&q[0]<534&&q[1]>-36&&q[1]<364; const m=Math.min(...(others||[]).map(o=>dist(o,q))); return (inV?1e4:0)+m; };
+  return score(c[0])>=score(c[1])?c[0]:c[1];
+}
+/* etichetta "qui il N": nel punto più lontano dagli altri giocatori */
+function labelSpot(at,pts){
+  const cand=[[0,-42],[0,48],[-56,6],[56,6],[-46,-36],[46,-36],[-46,44],[46,44]];
+  let best=null, bs=-1;
+  cand.forEach((o,i)=>{ const q=add(at,o); if(q[0]<30||q[0]>510||q[1]<-30||q[1]>366) return;
+    const m=Math.min(...pts.map(p=>Math.min(dist(p,q),dist(p,add(q,[-26,0])),dist(p,add(q,[26,0])))))-i*0.5;
+    if(m>bs){bs=m;best=q} });
+  return best||add(at,[0,-42]);
+}
+function ballSVG(p){
+  return `<g transform="translate(${p[0].toFixed(1)},${p[1].toFixed(1)})"><circle r="${R_BALL}" fill="var(--ball)" stroke="#2a1300" stroke-width="1.6"/><path d="M-11.5,0H11.5M0,-11.5V11.5M-8,-8.3C-3.4,-4 -3.4,4 -8,8.3M8,-8.3C3.4,-4 3.4,4 8,8.3" fill="none" stroke="#2a1300" stroke-width="1.3"/></g>`;
+}
+function screenBar(at,dpos){
+  const dir=unit(sub(dpos,at)), per=[-dir[1],dir[0]], c=add(at,mul(dir,R_ATK-1));
+  const a=add(c,mul(per,26)), b=add(c,mul(per,-26));
+  return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--ink)" stroke-width="13" stroke-linecap="round"/>
+          <line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--accent)" stroke-width="7.5" stroke-linecap="round"/>`;
+}
 
-function drawTrails(){
-  const g=$("trails"); g.innerHTML="";
-  if(!$("showTr").checked || k===0) return;
-  const A=prevOf(), B=seq[k]; let h="";
-  if($("showDef").checked) B.D.forEach((p,i)=>{const a=A.D[i]; if(moved(a,p)){const e=shorten(a,p,14);
-    h+=`<line x1="${a[0]}" y1="${a[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--def)" stroke-width="1.6" stroke-dasharray="2 4" opacity=".7" marker-end="url(#ah-def)"/>`}});
-  B.O.forEach((b,i)=>{
-    const pts=path(B,A,i); if(!moved(pts[0],b) && pts.length<3) return;
-    const type=(B.mv||{})[i]||"cut", lastI=pts.length-1;
-    if(type==="screen"){ const pl=pts.map(p=>p.join(",")).join(" ");
-      h+=`<polyline points="${pl}" fill="none" stroke="var(--atk)" stroke-width="2.4" stroke-dasharray="8 5" opacity=".9"/>`; return }
-    const e=shorten(pts[lastI-1],b,16), pl=[...pts.slice(0,lastI),e].map(p=>p.join(",")).join(" ");
-    h+=`<polyline points="${pl}" fill="none" stroke="var(--atk)" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#ah-atk)"/>`;
+/* =====================================================================
+   STATO E ANIMAZIONE
+   ===================================================================== */
+let PLAY=PUGNO, P=PUGNO.phases, seq=P, inBranch=false, mainK=0;
+let k=0, t=1, playing=false, raf=0, last=0, hold=0, panelKey="";
+const SPEED=()=>window.SNAILS_SPEED||1;
+const DUR=()=>2100/SPEED(), HOLD=()=>850/SPEED();
+const hasMoves=(B,A)=>B.O.some((p,i)=>moved(A.O[i],p)||(B.via||{})[i]);
+const moveEnd=(B,A)=>B.pass?(hasMoves(B,A)?0.5:0.12):1;
+
+function activeSet(B,A){
+  const s=new Set();
+  if(A!==B) B.O.forEach((p,i)=>{ if(moved(A.O[i],p)||(B.via||{})[i]) s.add(i) });
+  if(B.pass){ s.add(B.pass[0]); s.add(B.pass[1]); }
+  [...(B.screen||[]),...(B.screenOn||[])].forEach(x=>{ s.add(x.by); s.add(x.for) });
+  if(!s.size) [0,1,2,3,4].forEach(i=>s.add(i));
+  return s;
+}
+
+function frame(){
+  const B=seq[k], A=k>0?seq[k-1]:B, first=(A===B);
+  const mE=moveEnd(B,A);
+  const u=first?1:ease(Math.min(1,t/mE)), ud=first?1:ease(t);
+  const O=B.O.map((p,i)=>first?p:along(pathOf(B,A,i),u));
+  const D=B.D.map((p,i)=>first?p:lerp(A.D[i],p,ud));
+  const act=activeSet(B,A), branchView=inBranch;
+  const arrived=first||u>0.92;
+
+  /* linee: solo i movimenti della fase corrente */
+  let ln="";
+  if(!first){
+    B.O.forEach((b,i)=>{
+      const pts=pathOf(B,A,i); if(!moved(pts[0],b)&&pts.length<3) return;
+      const n=pts.length-1, e=shorten(pts[n-1],b,R_ATK+4);
+      ln+=`<polyline points="${pts2([...pts.slice(0,n),e])}" fill="none" stroke="var(--atk)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-atk)" opacity="${act.has(i)?1:.4}"/>`;
+    });
+    if(B.pass){ const a=B.O[B.pass[0]], b=B.O[B.pass[1]], s=shorten(b,a,R_ATK+4), e=shorten(a,b,R_ATK+8);
+      ln+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--fg)" stroke-width="3.2" stroke-dasharray="10 7" marker-end="url(#ah-fg)"/>`; }
+  }
+  if(branchView&&B.opt&&t>=1) B.opt.forEach(o=>{ const a=B.O[o[0]], b=B.O[o[1]], s=shorten(b,a,R_ATK+4), e=shorten(a,b,R_ATK+8);
+    ln+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--ball)" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" marker-end="url(#ah-ball)"/>`; });
+
+  /* difensori */
+  let dh="";
+  D.forEach((p,i)=>{
+    const role=(!first&&ud<0.5)?A.R[i]:B.R[i], on=act.has(i)||role==="bloccato";
+    let c, col="var(--def)";
+    if(role==="palla"){ c=`<circle r="${R_DEF}" fill="var(--def)" stroke="var(--ink)" stroke-width="1.5"/>`; col="var(--ink)"; }
+    else if(role==="aiuto") c=`<circle r="${R_DEF}" fill="var(--surface)" stroke="var(--def)" stroke-width="2.6" stroke-dasharray="5 4"/>`;
+    else if(role==="bloccato"){ c=`<circle r="${R_DEF}" fill="var(--surface)" stroke="var(--ball)" stroke-width="3.6"/>`; col="var(--ball)"; }
+    else c=`<circle r="${R_DEF}" fill="var(--surface)" stroke="var(--def)" stroke-width="3"/>`;
+    dh+=`<g class="pl df" data-n="X${i+1}" transform="translate(${p[0].toFixed(1)},${p[1].toFixed(1)})" opacity="${on?1:.4}">${c}<text y="0" dy=".36em" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="${col}">X${i+1}</text></g>`;
   });
-  (B.opt||[]).forEach(o=>{const a=B.O[o[0]], b=B.O[o[1]], s=shorten(b,a,16), e=shorten(a,b,20), d=unit(sub(e,s)), m=add(lerp(s,e,.5),[-d[1]*12,d[0]*12+8]);
-    h+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--ball)" stroke-width="2.4" stroke-dasharray="1.5 5" stroke-linecap="round"/>`+txt(m[0],m[1]-8,"opzione",15,"var(--ball)")});
-  if(B.pass){const a=B.O[B.pass[0]], b=B.O[B.pass[1]], s=shorten(b,a,16), e=shorten(a,b,18);
-    h+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--fg)" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#ah-fg)"/>`}
-  g.innerHTML=h;
-}
+  $("defs").innerHTML=dh;
 
-/* Blocco: corpo del bloccante girato verso il difensore */
-function screenBar(at, dpos){
-  const dir=unit(sub(dpos,at)), per=[-dir[1],dir[0]], c=add(at,mul(dir,15));
-  const a=add(c,mul(per,24)), b=add(c,mul(per,-24)), lp=add(at,mul(dir,-34));
-  return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--atk-ink)" stroke-width="12" stroke-linecap="round"/>
-          <line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/>`+
-          txt(lp[0],lp[1]+5,"BLOCCO",15,"var(--accent)");
-}
+  /* blocchi: punto "qui il N" lampeggiante e corpo del bloccante */
+  let bh="", lb="";
+  (B.screen||[]).forEach(s=>{ const at=s.at;
+    lb+=`<circle cx="${at[0]}" cy="${at[1]}" r="24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="6 5"><animate attributeName="r" values="22;28;22" dur="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.35;1" dur="1.1s" repeatCount="indefinite"/></circle>`;
+    const lp=labelSpot(at,[...B.O.filter((_,i)=>i!==s.by),...B.D]);
+    lb+=txt(lp[0],lp[1]+7,"qui il "+(s.by+1),22,"var(--accent)");
+    if(arrived) bh+=screenBar(O[s.by],D[s.for]);
+  });
+  (B.screenOn||[]).forEach(s=>bh+=screenBar(O[s.by],D[s.for]));
+  $("bars").innerHTML=bh;
 
-function drawPlayers(){
-  const B=seq[k], A=prevOf();
-  const mEnd = B.pass ? .45 : 1, u = k===0 ? 1 : ease(Math.min(t/mEnd,1));
-  const O = B.O.map((p,i)=>k===0?p:along(path(B,A,i),u)), D = B.D.map((p,i)=>k===0?p:lerp(A.D[i],p,u));
-  const sd=$("showDef").checked, arrived = k===0 || u>0.92;
-  let mk="", h="";
-  if(B.screen && !arrived) B.screen.forEach(s=>{ const at=s.at;
-    mk+=`<circle cx="${at[0]}" cy="${at[1]}" r="22" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-dasharray="5 4"><animate attributeName="r" values="20;25;20" dur="1.2s" repeatCount="indefinite"/></circle>`+txt(at[0],at[1]-30,"qui il "+(s.by+1),15,"var(--accent)") });
-  if(sd && $("showMk").checked) D.forEach((p,i)=>{ const m=O[i], e=shorten(p,m,16), s=shorten(m,p,14);
-    mk+=`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="var(--def)" stroke-width="1.4" stroke-dasharray="2 3" opacity=".55"/>` });
-  $("marks").innerHTML=mk;
-  if(sd) D.forEach((p,i)=>{
-    const role = (u<0.5 && k>0) ? (A.R[i]) : B.R[i];
-    let circ, col="var(--def)";
-    if(role==="palla"){ circ=`<circle r="14" fill="var(--def)"/>`; col="var(--atk-ink)" }
-    else if(role==="aiuto") circ=`<circle r="14" fill="var(--surface)" stroke="var(--def)" stroke-width="2.2" stroke-dasharray="4 3"/>`;
-    else if(role==="bloccato"){ circ=`<circle r="14" fill="var(--surface)" stroke="var(--ball)" stroke-width="2.8"/>`; col="var(--ball)" }
-    else circ=`<circle r="14" fill="var(--surface)" stroke="var(--def)" stroke-width="2.5"/>`;
-    h+=`<g transform="translate(${p[0]},${p[1]})">${circ}<text y="5" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="15" fill="${col}">X${i+1}</text></g>`});
-  if(B.screenOn) B.screenOn.forEach(s=>h+=screenBar(s.at, D[s.for]));
-  else if(B.screen && arrived) B.screen.forEach(s=>h+=screenBar(s.at, D[s.for]));
+  /* attaccanti */
+  let ah="";
   O.forEach((p,i)=>{
-    h+=`<g transform="translate(${p[0]},${p[1]})"><circle r="15" fill="var(--atk)" stroke="var(--atk-ink)" stroke-width="1.5"/><text y="6" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="18" fill="var(--atk-ink)">${i+1}</text></g>`});
-  let bp;
-  if(B.pass && t>mEnd){const v=ease((t-mEnd)/(1-mEnd)); bp=lerp(O[B.pass[0]],O[B.pass[1]],v)}
-  else bp=O[k===0?B.ball:A.ball];
-  h+=`<circle cx="${bp[0]+13}" cy="${bp[1]-13}" r="7" fill="var(--ball)" stroke="var(--fg)" stroke-width="1.2"/>`;
-  if(B.finish && t>=1) h+=txt(250,412,B.finish+"!",30,"var(--accent)");
-  $("players").innerHTML=h;
+    ah+=`<g class="pl at" data-n="${i+1}" transform="translate(${p[0].toFixed(1)},${p[1].toFixed(1)})" opacity="${act.has(i)?1:.4}"><circle r="${R_ATK}" fill="var(--atk)" stroke="var(--ink)" stroke-width="2"/><text y="0" dy=".36em" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="28" fill="var(--ink)">${i+1}</text></g>`;
+  });
+  $("atks").innerHTML=ah;
+  $("labels").innerHTML=lb;
+
+  /* palla: sempre nel livello più alto */
+  let carrier, bp, trail="";
+  if(!first&&B.pass&&t>mE){
+    const oth=i=>[...O.filter((_,j)=>j!==i),...D], v=ease((t-mE)/(1-mE)), s=ballSpot(O[B.pass[0]],oth(B.pass[0])), e=ballSpot(O[B.pass[1]],oth(B.pass[1]));
+    bp=lerp(s,e,v); carrier=v>=1?B.pass[1]:null;
+    if(v<1){
+      trail+=`<line x1="${s[0]}" y1="${s[1]}" x2="${bp[0]}" y2="${bp[1]}" stroke="var(--ball)" stroke-width="8" stroke-linecap="round" opacity=".28"/>`;
+      [[.07,9,.55],[.14,7,.35],[.21,5,.2]].forEach(g=>{ if(v-g[0]>0){ const q=lerp(s,e,v-g[0]); trail+=`<circle cx="${q[0]}" cy="${q[1]}" r="${g[1]}" fill="var(--ball)" opacity="${g[2]}"/>`; } });
+    }
+  } else {
+    carrier=first?B.ball:(B.pass?B.pass[0]:B.ball);
+    bp=ballSpot(O[carrier],[...O.filter((_,j)=>j!==carrier),...D]);
+  }
+  if(carrier!=null){ const c=O[carrier]; ln+=`<circle id="ring" cx="${c[0]}" cy="${c[1]}" r="${R_ATK+6}" fill="none" stroke="var(--ball)" stroke-width="4.5"/>`; }
+  $("lines").innerHTML=ln;
+  $("ballLayer").innerHTML=trail+`<g id="ball">${ballSVG(bp)}</g>`;
+  window.__frame={O,D,ball:bp,carrier};
 }
 
+const dotsHTML=(n,cur)=>Array.from({length:n},(_,i)=>`<span class="dot${i<cur?" done":""}${i===cur?" on":""}"></span>`).join("");
 function renderPanel(){
-  const B=seq[k], sd=$("showDef").checked;
-  $("nowNum").textContent = inBranch ? `Opzione · ${k} di ${seq.length-1}` : `Fase ${k+1} di ${P.length}`;
-  $("nowNum").classList.toggle("isopt", inBranch);
-  $("nowTitle").textContent=B.t;
-  $("nowAtk").innerHTML=B.atk;
-  $("nowScr").innerHTML=B.scr?`<span class="tag">Il blocco</span>${B.scr}`:""; $("nowScr").hidden=!B.scr;
-  $("nowDef").innerHTML=sd?"<span class=\"tag d\">Difesa</span>"+B.def:""; $("nowDef").hidden=!sd;
-  const br = !inBranch && B.branch;
-  $("branchBtn").hidden=!br; if(br) $("branchBtn").textContent="▶ "+B.branch.label;
-  $("backMain").hidden=!inBranch;
-  [...$("steps").querySelectorAll("button")].forEach((b,i)=>{const on=!inBranch&&i===k||inBranch&&i===mainK; b.classList.toggle("on",on); b.setAttribute("aria-current",on?"step":"false")});
-  $("play").textContent = playing ? "❚❚ Pausa" : (k===seq.length-1 && t>=1 ? "⟲ Rivedi" : "▶ Play");
+  const B=seq[k], key=PLAY.id+"|"+inBranch+"|"+mainK+"|"+k;
+  if(key!==panelKey){
+    panelKey=key;
+    $("info").classList.toggle("optmode",inBranch);
+    if(inBranch){ $("dots").innerHTML=dotsHTML(seq.length-1,k-1); $("pcount").textContent=`Opzione ${k}/${seq.length-1}`; }
+    else { $("dots").innerHTML=dotsHTML(P.length,k); $("pcount").textContent=`Fase ${k+1}/${P.length}`; }
+    $("nowTitle").textContent=B.t;
+    $("nowSay").textContent=B.s;
+    const br=!inBranch&&B.branch;
+    $("optBtn").hidden=!br;
+    if(br) $("optBtn").innerHTML=`Vedi l'altra opzione <small>${B.branch.label}</small>`;
+    $("optBanner").hidden=!inBranch; if(inBranch) $("optBanner").textContent="Opzione: "+P[mainK].branch.label;
+    $("mainBtn").hidden=!inBranch;
+    $("detBody").innerHTML=`<h4>Attacco</h4><p>${B.atk}</p>`+(B.scr?`<h4>Il blocco</h4><p>${B.scr}</p>`:"")+`<h4>Difesa</h4><p>${B.def}</p>`;
+    $("info").scrollTop=0;
+  }
+  const atEnd=k===seq.length-1&&t>=1;
+  $("fin").hidden=!(B.finish&&t>=1); if(B.finish) $("fin").textContent=B.finish+"!";
+  $("prev").disabled=(k===0&&!inBranch);
+  $("next").disabled=atEnd;
+  const lbl=playing?"Pausa":(atEnd?"Rivedi":"Play");
+  if($("play").dataset.l!==lbl){
+    $("play").dataset.l=lbl;
+    const ic=playing?`<svg width="18" height="18" viewBox="0 0 18 18"><rect x="3" y="2" width="4.5" height="14" rx="1" fill="currentColor"/><rect x="10.5" y="2" width="4.5" height="14" rx="1" fill="currentColor"/></svg>`
+      :atEnd?`<svg width="18" height="18" viewBox="0 0 18 18"><path d="M3.5 9a5.5 5.5 0 1 0 1.8-4.1" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M2 2.5v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+      :`<svg width="18" height="18" viewBox="0 0 18 18"><path d="M4 2l12 7-12 7z" fill="currentColor"/></svg>`;
+    $("play").innerHTML=ic+lbl;
+    $("play").setAttribute("aria-label",lbl);
+  }
 }
-function render(){drawTrails(); drawPlayers(); renderPanel()}
+function render(){ frame(); renderPanel(); }
 
-function dur(){return 2100/parseFloat($("speed").value)}
 function tick(now){
-  const dt=now-last; last=now;
-  if(hold>0){hold-=dt; if(hold<=0){ if(k<seq.length-1){k++; t=0} else playing=false }}
-  else if(t<1){ t=Math.min(1,t+dt/dur()); if(t>=1 && playing) hold=900/parseFloat($("speed").value) }
+  const dt=Math.min(100,now-last); last=now;
+  if(hold>0){ hold-=dt; if(hold<=0){ if(k<seq.length-1){k++; t=0} else playing=false } }
+  else if(t<1){ t=Math.min(1,t+dt/DUR()); if(t>=1&&playing) hold=HOLD(); }
   render();
   if(playing||t<1||hold>0) raf=requestAnimationFrame(tick); else raf=0;
 }
 function run(){ if(!raf){ last=performance.now(); raf=requestAnimationFrame(tick) } }
-function stop(){ playing=false; hold=0 }
+function stop(){ playing=false; hold=0; }
 function toMain(i){ stop(); seq=P; inBranch=false; k=i; }
 
-$("play").onclick=()=>{
-  if(playing){stop(); render(); return}
-  if(k===seq.length-1 && t>=1){k=0; t=1}
+function doPlay(){
+  if(playing){ stop(); render(); return; }
+  if(k===seq.length-1&&t>=1){ if(inBranch){k=1;t=0} else {k=0;t=1} }
   playing=true;
-  if(t>=1 && k<seq.length-1){k++; t=0}
-  run();
-};
-$("next").onclick=()=>{stop(); if(t<1) t=1; else if(k<seq.length-1){k++; t=0} render(); run()};
-$("prev").onclick=()=>{stop(); if(k>0)k--; else if(inBranch){toMain(mainK)} t=1; render()};
-$("restart").onclick=()=>{toMain(0); t=1; render()};
-$("branchBtn").onclick=()=>{ const B=seq[k]; stop(); mainK=k; seq=[B,...B.branch.phases]; inBranch=true; k=1; t=0; playing=true; render(); run() };
-$("backMain").onclick=()=>{ toMain(mainK); t=1; render() };
-$("showDef").onchange=render; $("showTr").onchange=render; $("showMk").onchange=render;
+  if(t>=1&&k<seq.length-1){k++;t=0}
+  run(); render();
+}
+function doNext(){ stop(); if(t<1) t=1; else if(k<seq.length-1){k++;t=0;run()} render(); }
+function doPrev(){ stop(); if(inBranch&&k<=1) toMain(mainK); else if(k>0) k--; t=1; render(); }
+function openBranch(){ const B=seq[k]; if(inBranch||!B.branch) return; stop(); mainK=k; seq=[B,...B.branch.phases]; inBranch=true; k=1; t=0; render(); run(); }
+function closeBranch(){ toMain(mainK); t=1; render(); }
+
+$("play").onclick=doPlay; $("next").onclick=doNext; $("prev").onclick=doPrev;
+$("optBtn").onclick=openBranch; $("mainBtn").onclick=closeBranch;
+
+/* scorrimento sul campo: sinistra = avanti, destra = indietro */
+(()=>{ const el=$("courtwrap"); let sx=null, sy=null;
+  el.addEventListener("pointerdown",e=>{ sx=e.clientX; sy=e.clientY; });
+  el.addEventListener("pointerup",e=>{ if(sx===null) return; const dx=e.clientX-sx, dy=e.clientY-sy; sx=null;
+    if(Math.abs(dx)>40&&Math.abs(dx)>1.4*Math.abs(dy)){ dx<0?doNext():doPrev(); $("swipehint").style.opacity=0; } });
+  el.addEventListener("pointercancel",()=>{ sx=null; });
+})();
+document.addEventListener("keydown",e=>{
+  if($("v-play").hidden||e.target.closest("summary,button,a")&&e.key===" ") return;
+  if(e.key==="ArrowRight"){ doNext(); e.preventDefault(); }
+  else if(e.key==="ArrowLeft"){ doPrev(); e.preventDefault(); }
+  else if(e.key===" "){ doPlay(); e.preventDefault(); }
+});
 
 function loadPlay(id){
-  PLAY=PLAYS[id]; P=PLAY.phases; toMain(0); t=1;
-  $("playEyebrow").textContent=PLAY.eyebrow; $("playTitle").textContent=PLAY.name; $("playIntro").textContent=PLAY.intro;
-  $("steps").innerHTML="";
-  P.forEach((p,i)=>{const li=document.createElement("li"), b=document.createElement("button");
-    b.innerHTML=`<span class="n">${i+1}</span><span>${p.t}${p.branch?' <span class="optdot">+ opzione</span>':''}</span>`;
-    b.onclick=()=>{toMain(i); if(i===0){t=1;render()} else {t=0;render();run()}};
-    li.appendChild(b); $("steps").appendChild(li)});
+  PLAY=PLAYS[id]; P=PLAY.phases; toMain(0); t=1; panelKey="";
+  $("playTitle").textContent=PLAY.name;
+  $("det").open=false;
   render();
 }
 drawFloor();
 
+/* =====================================================================
+   NAVIGAZIONE (#pugno, #2, #nuovo, #fondo, #laterale)
+   ===================================================================== */
+let lastView=null, fromHome=false;
 function route(){
   const h=decodeURIComponent(location.hash.slice(1)).toLowerCase();
-  const home=$("v-home"), pv=$("v-play");
-  stop();
-  if(PLAYS[h]){ home.hidden=true; pv.hidden=false; loadPlay(h); document.title=PLAYS[h].name+" · The Snails"; }
-  else { pv.hidden=true; home.hidden=false; document.title="Schemi The Snails 2026/27"; }
+  stop(); if(raf){ cancelAnimationFrame(raf); raf=0; }
+  if(PLAYS[h]){
+    fromHome=(lastView==="home");
+    $("v-home").hidden=true; $("v-play").hidden=false; loadPlay(h);
+    document.title=PLAYS[h].name+" · Schemi The Snails 2026/27";
+    lastView=h;
+  } else {
+    $("v-play").hidden=true; $("v-home").hidden=false;
+    document.title="Schemi The Snails 2026/27";
+    lastView="home";
+  }
   window.scrollTo(0,0);
 }
-addEventListener("hashchange",route); route();
+$("backHome").addEventListener("click",e=>{ if(fromHome){ e.preventDefault(); history.back(); } });
+addEventListener("hashchange",route);
+route();
 
+const _bad=checkSpacing(); if(_bad.length) console.warn("Distanze sotto il minimo:",_bad);
+window.SNAILS={PLAYS,checkSpacing,allSequences,state:()=>({id:PLAY.id,k,t,inBranch,seqLen:seq.length,playing})};
 </script>
 </body></html>
